@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0" prefWidth="469.0" styleClass="baseDark, loginPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.o3project.mlo.client.impl.control.LoginViewController">
+  <children>
+    <AnchorPane minHeight="-Infinity" prefHeight="235.0" prefWidth="600.0" styleClass="mainToolBar" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Label fx:id="titleLabel" prefHeight="32.0" styleClass="titleLabel" text="Hitachi Cloud WAN Orchestrator Client" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
+        <Label prefHeight="20.0" prefWidth="173.0" styleClass="normalLabel" text="User ID:" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="57.0" />
+        <TextField fx:id="userIdTextField" prefHeight="28.0" prefWidth="403.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="77.0" />
+        <Label layoutY="133.0" prefHeight="28.0" prefWidth="173.0" styleClass="normalLabel" text="Password:" AnchorPane.leftAnchor="40.0" />
+        <PasswordField id="loginPasswordField" fx:id="passwordField" prefWidth="200.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="151.0" />
+      </children>
+    </AnchorPane>
+    <AnchorPane prefHeight="86.0" prefWidth="600.0" styleClass="anchorPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <children>
+        <Label id="loginNotificationLabel" fx:id="notificationLabel" prefHeight="28.0" prefWidth="542.0" styleClass="normalLabel" text="Login failed." AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="8.0" />
+        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handleLoginButtonAction" prefHeight="28.0" prefWidth="128.0" text="Login" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="100.0" />
+        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExitButtonAction" prefHeight="28.0" prefWidth="64.0" text="Exit" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="16.0" />
+      </children>
+    </AnchorPane>
+  </children>
+  <stylesheets>
+    <URL value="@mlo-client-fxml.css" />
+  </stylesheets>
+</AnchorPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.o3project.mlo.client.moc.DemoAllSample">
+  <children>
+    <Pane layoutX="14.0" layoutY="73.0" prefHeight="698.0000999999975" prefWidth="204.0" style="-fx-border-color: black;&#10;-fx-border-style: solid;&#10;" />
+    <Pane layoutX="230.0" layoutY="75.0" prefHeight="698.0" prefWidth="556.0" style="-fx-border-color: black;&#10;-fx-border-style: solid;&#10;">
+      <children>
+        <Pane layoutX="-209.0" layoutY="7.0" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: lightgray;">
+          <children>
+            <Label layoutX="6.0" layoutY="1.0" prefHeight="29.999900000002526" prefWidth="128.0" text="Slice list">
+              <font>
+                <Font size="20.0" fx:id="x1" />
+              </font>
+            </Label>
+            <Button fx:id="addSliceBt" layoutX="121.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="20.0" prefWidth="65.0" text="Add" />
+          </children>
+        </Pane>
+        <ListView fx:id="sliceList" layoutX="-209.0" layoutY="38.0" prefHeight="652.0000999999975" prefWidth="190.0" />
+        <Pane layoutX="7.0" layoutY="7.0" prefHeight="30.0" prefWidth="542.0" style="-fx-background-color: lightgray;">
+          <children>
+            <Label font="$x1" layoutX="5.0" layoutY="1.0" prefHeight="29.999900000002526" prefWidth="327.0" text="Slice Information" />
+            <Button layoutX="474.0" layoutY="5.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="65.0" text="Delete" />
+            <Button fx:id="editSliceBt" layoutX="403.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="20.0" prefWidth="65.0" text="Edit">
+              <font>
+                <Font size="12.0" />
+              </font>
+            </Button>
+          </children>
+        </Pane>
+        <Label layoutX="-203.0" layoutY="-57.0" prefHeight="46.54296875" prefWidth="243.0" text="MLO client">
+          <font>
+            <Font size="40.0" fx:id="x3" />
+          </font>
+        </Label>
+        <ScrollPane fx:id="scrolPane" content="$null" layoutX="15.0" layoutY="206.0" prefHeight="478.0" prefWidth="520.0" style="-fx-background-color: white;&#10;" />
+        <Pane fx:id="sliceIInfoPanel" layoutX="14.0" layoutY="72.0" prefHeight="89.0" prefWidth="527.0" style="" />
+      </children>
+    </Pane>
+    <Pane layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="772.0" style="-fx-background-color: lightgray;&#10;-fx-border-color: black;&#10;-fx-border-style: solid;" />
+    <Label layoutX="241.0" layoutY="118.0" text="Properties">
+      <font>
+        <Font size="15.0" fx:id="x2" />
+      </font>
+    </Label>
+    <Line endX="430.0" layoutX="342.0" layoutY="139.0" startX="-100.0" />
+    <Label font="$x2" layoutX="241.0" layoutY="242.0" text="Flow list" />
+    <Line endX="430.0" layoutX="342.0" layoutY="263.0" startX="-100.0" />
+    <Label font="$x3" layoutX="21.0" layoutY="18.0" prefHeight="46.54296875" prefWidth="243.0" text="MLO client" />
+    <Label layoutX="486.0" layoutY="773.0" text="Copyright (C) 2014 Hitachi, Ltd. All rights reserved." />
+  </children>
+</AnchorPane>

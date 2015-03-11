@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" fx:id="simpleView" maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="406.00019999999495" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.o3project.mlo.client.impl.control.SimpleViewControllerImpl">
+  <children>
+    <HBox id="HBox" alignment="CENTER" layoutX="127.0" layoutY="20.0" prefHeight="32.0" prefWidth="258.0" spacing="5.0">
+      <children>
+        <ToggleButton fx:id="accOnBt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" selected="true" text="ON" HBox.hgrow="ALWAYS">
+          <toggleGroup>
+            <ToggleGroup fx:id="x1" />
+          </toggleGroup>
+        </ToggleButton>
+        <ToggleButton fx:id="accOffBt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" text="OFF" toggleGroup="$x1" HBox.hgrow="ALWAYS" />
+      </children>
+    </HBox>
+    <Label layoutX="23.0" layoutY="23.0" prefHeight="27.0" prefWidth="81.0" text="Acceleration" />
+    <Pane fx:id="bandWidthPanel" prefHeight="98.0" prefWidth="381.0" style="" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="95.0">
+      <children>
+        <HBox id="HBox" alignment="CENTER" layoutX="110.0" layoutY="3.0" prefHeight="32.0" prefWidth="258.0" spacing="5.0">
+          <children>
+            <ToggleButton fx:id="narrowBt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" selected="true" text="Narrow" HBox.hgrow="ALWAYS">
+              <toggleGroup>
+                <ToggleGroup fx:id="bandToggleGroup" />
+              </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="broadBt" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" text="Broad" toggleGroup="$bandToggleGroup" HBox.hgrow="ALWAYS" />
+          </children>
+        </HBox>
+        <VBox layoutX="9.0" layoutY="42.0" prefHeight="54.0" prefWidth="358.0">
+          <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+              <children>
+                <Label maxHeight="1.7976931348623157E308" prefHeight="27.0" prefWidth="115.00009999999747" text="Used Band Width" HBox.hgrow="ALWAYS" />
+                <Label maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="16.0" text=":" />
+                <Label fx:id="bandWidthLabel" alignment="CENTER_RIGHT" contentDisplay="LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="1000" HBox.hgrow="ALWAYS" />
+                <Region maxHeight="1.7976931348623157E308" prefHeight="-1.0" prefWidth="32.0" />
+                <Label maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="48.0" text="Mbps" />
+              </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+              <children>
+                <Label maxHeight="1.7976931348623157E308" prefHeight="27.0" prefWidth="115.0" text="Latency" />
+                <Label maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="16.0" text=":" />
+                <Label fx:id="latencyLabel" alignment="CENTER_RIGHT" contentDisplay="LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="20" HBox.hgrow="ALWAYS" />
+                <Region maxHeight="1.7976931348623157E308" prefHeight="-1.0" prefWidth="32.0" />
+                <Label maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="48.0" text="msec" />
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+        <Label layoutX="9.0" layoutY="6.0" prefHeight="27.0" prefWidth="81.0" text="Band Width" />
+      </children>
+    </Pane>
+    <CheckBox fx:id="setBandWidthCb" mnemonicParsing="false" onAction="#handleCheckBoxAction" selected="true" text="Show / Hide" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="286.0" AnchorPane.topAnchor="71.0" />
+  </children>
+</AnchorPane>

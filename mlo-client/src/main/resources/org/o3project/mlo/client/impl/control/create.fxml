@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.o3project.mlo.client.impl.control.MloCreateViewController">
+  <children>
+    <AnchorPane prefHeight="47.0" prefWidth="772.0" style="-fx-background-color: lightgray;&#10;-fx-border-color: black;&#10;-fx-border-style: solid;" styleClass="legacyTitleBar" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0">
+      <children>
+        <Label fx:id="headerLabel" prefHeight="-1.0" prefWidth="-1.0" text="MLO Client" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
+          <font>
+            <Font size="32.0" fx:id="x3" />
+          </font>
+        </Label>
+      </children>
+    </AnchorPane>
+    <AnchorPane prefHeight="697.0000999999975" prefWidth="772.0" style="-fx-border-color: black;&#10;-fx-border-style: solid;&#10;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="55.0">
+      <children>
+        <AnchorPane prefHeight="30.0" prefWidth="758.0" style="-fx-background-color: lightgray;" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
+          <children>
+            <Label prefHeight="-1.0" prefWidth="-1.0" text="Create Slice" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="216.0" AnchorPane.topAnchor="0.0">
+              <font>
+                <Font size="20.0" fx:id="x1" />
+              </font>
+            </Label>
+            <Button fx:id="createCancelBt" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="20.0" prefWidth="65.0" text="Cancel" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="6.0" />
+            <Button fx:id="createSliceBt" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="20.0" prefWidth="65.0" text="Create" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="6.0" />
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="-Infinity" prefHeight="24.0" prefWidth="200.0" styleClass="subTitle" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="40.0">
+          <children>
+            <Label text="Properties" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="2.0">
+              <font>
+                <Font size="15.0" fx:id="x2" />
+              </font>
+            </Label>
+          </children>
+        </AnchorPane>
+        <AnchorPane fx:id="sliceInfoPanel" prefHeight="54.0" prefWidth="744.0" style="" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="72.0" />
+        <AnchorPane prefHeight="32.0" prefWidth="200.0" styleClass="subTitle" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="128.0">
+          <children>
+            <Label font="$x2" text="Flow list" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0" />
+            <Button fx:id="addFlowBt" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="20.0" prefWidth="90.0" text="Add a flow" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0" />
+          </children>
+        </AnchorPane>
+        <ScrollPane fx:id="scrollPane" content="$null" prefHeight="350.0" prefWidth="756.0" style="-fx-background-color: white;&#10;" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="164.0" />
+      </children>
+    </AnchorPane>
+    <Label fx:id="copyrightLabel" text="Copyright (C) yyyy,zzzz, Hitachi, Ltd. All rights reserved." AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="58.0" />
+  </children>
+  <stylesheets>
+    <URL value="@mlo-client-fxml-legacy.css" />
+  </stylesheets>
+</AnchorPane>

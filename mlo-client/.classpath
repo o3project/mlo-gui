@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/resources"/>
+	<classpathentry kind="src" path="src/test/javafx"/>
+	<classpathentry kind="src" path="src/prototype/java"/>
+	<classpathentry kind="src" path="src/prototype/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.jar" sourcepath="lib/sources/commons-logging-1.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/easymock-2.4.jar" sourcepath="lib/sources/easymock-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/easymockclassextension-2.4.jar" sourcepath="lib/sources/easymockclassextension-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/geronimo-jta_1.1_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/geronimo-servlet_2.4_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/h2-1.0.69.jar"/>
+	<classpathentry kind="lib" path="lib/javassist-3.4.ga.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.4.jar" sourcepath="lib/sources/junit-4.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.13.jar" sourcepath="lib/sources/log4j-1.2.13-sources.jar"/>
+	<classpathentry kind="lib" path="lib/ognl-2.6.9-patch-20090427.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.0-FINAL.jar"/>
+	<classpathentry kind="lib" path="lib/s2-extension-2.4.46.jar" sourcepath="lib/sources/s2-extension-2.4.46-sources.jar"/>
+	<classpathentry kind="lib" path="lib/s2-framework-2.4.46.jar" sourcepath="lib/sources/s2-framework-2.4.46-sources.jar"/>
+	<classpathentry kind="lib" path="lib/s2-tiger-2.4.46.jar" sourcepath="lib/sources/s2-tiger-2.4.46-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jfxrt.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/mlo-srv"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

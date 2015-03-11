@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN" 
+	"http://www.seasar.org/dtd/components24.dtd">
+<components>
+  <include path="convention.dicon"/>
+  <include path="aop.dicon"/>
+
+  <!-- MLO componets -->
+  <component name="clientConfigProvider" 
+      class="org.o3project.mlo.client.impl.control.ClientConfigProviderImpl" 
+      instance="singleton">
+      <arg>"./mlo-client.properties"</arg>
+  </component>
+  <component name="clientConfig" 
+      class="org.o3project.mlo.client.impl.control.ClientConfigImpl" 
+      instance="singleton">
+  </component>
+  <component name="sliceDataManager" 
+      class="org.o3project.mlo.client.impl.control.SliceDataManagerImpl" 
+      instance="singleton">
+  </component>
+  <component name="mloGetMethod" 
+      class="org.o3project.mlo.client.impl.control.MloGetMethodImpl" 
+      instance="singleton">
+  </component>
+  <component name="mloPostMethod" 
+      class="org.o3project.mlo.client.impl.control.MloPostMethodImpl" 
+      instance="singleton">
+  </component>
+  <component name="actualInvoker" 
+      class="org.o3project.mlo.client.impl.control.MloInvokerImpl" 
+      instance="singleton">
+  </component>
+  <component name="dummyInvoker" 
+      class="org.o3project.mlo.client.impl.control.DummyMloInvoker" 
+      instance="singleton">
+  </component>
+  <component name="mloSerdes" 
+      class="org.o3project.mlo.client.impl.control.MloSerdesImpl" 
+      instance="singleton">
+  </component>
+  
+</components>

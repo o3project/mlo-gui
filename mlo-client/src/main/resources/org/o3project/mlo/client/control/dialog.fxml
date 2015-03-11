@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" fx:id="dialogPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" style="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.o3project.mlo.client.control.MloDialogController">
+  <children>
+    <Button id="okBt" layoutX="54.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleBtnYesAction" prefHeight="34.0" prefWidth="115.0" text="OK" />
+    <Button id="cancelBt" layoutX="229.0" layoutY="94.0" mnemonicParsing="false" onAction="#handleBtnNoAction" prefHeight="34.0" prefWidth="115.0" text="Cancel" />
+    <Label fx:id="textLb" layoutX="14.0" layoutY="20.0" prefHeight="37.0" prefWidth="372.0" text="処理を開始しますがよろしいでしょうか？" />
+  </children>
+</AnchorPane>

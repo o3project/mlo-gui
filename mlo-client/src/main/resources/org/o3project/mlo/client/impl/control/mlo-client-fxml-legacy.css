@@ -1,0 +1,15 @@
+
+.legacyTitleBar {
+	-fx-background-image: url('O3_CO_logo_yoko.png');
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 164px 42px;
+	-fx-background-position: 98%;
+}
+
+.subTitle {
+	-fx-border-style: none none solid none;
+	-fx-border-width: 1px;
+	-fx-border-color: black;
+}
+
+

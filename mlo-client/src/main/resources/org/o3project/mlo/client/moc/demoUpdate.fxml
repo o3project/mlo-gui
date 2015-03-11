@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.o3project.mlo.client.moc.DemoAllSample">
+  <children>
+    <Pane layoutX="14.0" layoutY="75.0" prefHeight="697.0" prefWidth="772.0" style="-fx-border-color: black;&#10;-fx-border-style: solid;&#10;">
+      <children>
+        <Pane layoutX="7.0" layoutY="7.0" prefHeight="30.0" prefWidth="758.0" style="-fx-background-color: lightgray;">
+          <children>
+            <Label layoutX="5.0" layoutY="1.0" prefHeight="29.999900000002526" prefWidth="327.0" text="Update Slice">
+              <font>
+                <Font size="20.0" fx:id="x1" />
+              </font>
+            </Label>
+            <Button fx:id="updateCancelBt" layoutX="689.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="20.0" prefWidth="65.0" text="Cancel" />
+            <Button fx:id="updateSliceBt" layoutX="619.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="20.0" prefWidth="65.0" text="Update" />
+          </children>
+        </Pane>
+        <ScrollPane fx:id="scrolPane" content="$null" layoutX="15.0" layoutY="206.0" prefHeight="477.0" prefWidth="736.0" style="-fx-background-color: white;&#10;" />
+        <Pane fx:id="sliceIInfoPanel" layoutX="15.0" layoutY="72.0" prefHeight="89.0" prefWidth="744.0" style="" />
+      </children>
+    </Pane>
+    <Pane layoutX="14.0" layoutY="14.0" prefHeight="54.0" prefWidth="772.0" style="-fx-background-color: lightgray;&#10;-fx-border-color: black;&#10;-fx-border-style: solid;" />
+    <Label layoutX="23.0" layoutY="118.0" text="Properties">
+      <font>
+        <Font size="15.0" fx:id="x2" />
+      </font>
+    </Label>
+    <Line endX="650.0" layoutX="124.0" layoutY="139.0" startX="-100.0" />
+    <Label font="$x2" layoutX="24.0" layoutY="242.0" text="Flow list" />
+    <Line endX="650.0" layoutX="124.0" layoutY="263.0" startX="-100.0" />
+    <Button fx:id="addFlowBt" layoutX="685.0" layoutY="239.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="20.0" prefWidth="90.0" text="Add a flow" />
+    <Label layoutX="21.0" layoutY="18.0" prefHeight="46.54296875" prefWidth="243.0" text="MLO client">
+      <font>
+        <Font size="40.0" fx:id="x3" />
+      </font>
+    </Label>
+    <Label layoutX="486.0" layoutY="772.0" text="Copyright (C) 2014 Hitachi, Ltd. All rights reserved." />
+  </children>
+</AnchorPane>

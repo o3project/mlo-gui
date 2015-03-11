@@ -1,0 +1,8 @@
+DaoType=None
+DefaultResourcePath=/mlo-client/src/main/resources
+DefaultRootPackage=org.o3project.mlo.client
+DefaultSrcPath=/mlo-client/src/main/java
+ServletPath=mlo-client
+ViewType=None
+WebContentsRoot=src/main/webapp
+eclipse.preferences.version=1
