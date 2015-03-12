@@ -1,6 +1,6 @@
 /**
  * MloUpdateViewController.java
- * (C) 2014, Hitachi Solutions, Ltd.
+ * (C) 2014,2015, Hitachi, Ltd.
  */
 package org.o3project.mlo.client.impl.control;
 
