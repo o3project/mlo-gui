@@ -5,10 +5,11 @@
 package org.o3project.mlo.client.control;
 
 /**
- * MLO NBI アクセス時に発生する異常を表現する例外クラスです。
- * MLO から返却がないなど、MLO NBI から応答がない場合にこの例外がスローされます。
- * 例えば、MLO の URI が不正で MLO にアクセスができない場合に使用されます。
- * MLO NBI から正常に応答が返ってきたが、その応答がエラーを含む場合には {@link MloNbiException} がスローされるべきです。
+ * This exception class designates access failure to mlo-srv.
+ * This class is thrown when mlo-client cannot receive response from mlo-srv.
+ * For example, this class will be used when URI of mlo-srv is incorrect and so on.
+ * In the case that mlo-client receives response but the response includes error,
+ * {@link MloNbiExceptio} must be used.
  */
 public class MloAccessException extends MloClientException {
 
@@ -18,17 +19,17 @@ public class MloAccessException extends MloClientException {
 	private static final long serialVersionUID = 1595966171065226386L;
 
 	/**
-	 * 指定されたエラーメッセージで例外を作成します。
-	 * @param msg エラーメッセージ
+	 * Constructs an instance with the specified detail message.
+	 * @param msg the detail message.
 	 */
 	public MloAccessException(String msg) {
 		super(msg);
 	}
 
 	/**
-	 * 指定されたエラーメッセージと原因で例外を作成します。
-	 * @param msg エラーメッセージ
-	 * @param cause 原因
+	 * Constructs an instance with the specified cause and a detail message.
+	 * @param msg the detail message. 
+	 * @param cause the cause.
 	 */
 	public MloAccessException(String msg, Throwable cause) {
 		super(msg, cause);

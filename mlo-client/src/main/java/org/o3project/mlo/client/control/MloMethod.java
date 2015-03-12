@@ -12,65 +12,65 @@ import org.o3project.mlo.server.dto.RestifRequestDto;
 import org.o3project.mlo.server.dto.RestifResponseDto;
 
 /**
- * MLO へのアクセスメソッドを表すインタフェースです。
+ * This interface designates HTTP method in accessing to mlo-srv.
  */
 public interface MloMethod {
 	
 	/**
-	 * メソッド名を取得します。
-	 * GET/POST のいずれかである必要があります。
-	 * @return メソッド名
+	 * Obtains method name, GET or POS.
+	 * @return the method name. 
 	 */
 	String getName();
 	
 	/**
-	 * リクエスト時にボディ部にデータを書き込むか否かを表します。
-	 * @return true の場合、ボディ部にデータを書き込みます。
+	 * Specifies whether this request writes HTTP request body or not.
+	 * For GET or DELETE method, request body will not be needed.
+	 * @return If true, the request body is written.
 	 */
 	boolean isSetDoOutput();
 	
 	/**
-	 * HTTP リクエスト送信時に出力ストリームにリクエスト情報を書き込みます。
-	 * @param reqDto リクエスト情報
-	 * @param ostream リクエストのボディ部を表す出力ストリーム
+	 * Writes the request body to output stream in invoking the HTTP request.
+	 * @param reqDto The request DTO.
+	 * @param ostream The output stream for the request body.
 	 */
 	void handleReqOutput(RestifRequestDto reqDto, OutputStream ostream);
 	
 	/**
-	 * HTTP レスポンス受信時に入力ストリームからレスポンス情報を取得します。
-	 * @param istream レスポンスのボディ部を表す入力ストリーム
-	 * @return レスポンス情報
+	 * Handles the HTTP response as a response DTO from input stream.
+	 * @param istream The input stream for the response body.
+	 * @return The response DTO.
 	 */
 	RestifResponseDto handleResInput(InputStream istream);
 	
 	/**
-	 * 接続タイムアウト時間を取得します。
-	 * ここで取得される値が HTTP 接続時に設定されます。
-	 * 0が取得される場合、タイムアウト時間は設定されません。
-	 * @return タイムアウト時間[秒]
+	 * Obtains the connection timeout.
+	 * The HTTP connection uses the value obtained by this method.
+	 * If this method returns zero, no timeout is set.
+	 * @return timeout [seconds].
 	 */
 	Integer getConnectionTimeoutSec();
 
 	/**
-	 * 読み込みタイムアウト時間を取得します。
-	 * ここで取得される値が HTTP 接続時に設定されます。
-	 * 0が取得される場合、タイムアウト時間は設定されません。
-	 * @return タイムアウト時間[秒]
+	 * Obtains the read timeout.
+	 * The HTTP connection uses the value obtained by this method.
+	 * If this method returns zero, no timeout is set.
+	 * @return timeout [seconds].
 	 */
 	Integer getReadTimeoutSec();
 	
 	
 	/**
-	 * パスとクエリパラメータから URL を作成します。
-	 * ベース URL はコンフィグから取得されます。
-	 * ベース URL が http://myHost/myBasePath、
-	 * パスが myPath、
-	 * クエリパラメータが {"param1":"value1", "param2":"value2"} である場合、
-	 * 以下の文字列を返します。
+	 * Constructs URL with path and query parameters.
+	 * The base URL is retrieved from configuration.
+	 * In the case that, for example, base URL is http://myHost/myBasePath,
+	 * path is myPath, 
+	 * and query parameters are {"param1":"value1", "param2":"value2"},
+	 * this method returns the following string.
 	 * http://myHost/myBasePath/myPath?param1=value1&amp;param2=value2
-	 * @param path パス
-	 * @param params クエリパラメータ
-	 * @return URL 文字列
+	 * @param path the path
+	 * @param params the query paraemters.
+	 * @return URL string.
 	 */
 	String constructUrl(String path, Map<String, String> params);
 }

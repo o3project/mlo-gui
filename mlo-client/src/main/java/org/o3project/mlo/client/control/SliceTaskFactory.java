@@ -5,49 +5,44 @@
 package org.o3project.mlo.client.control;
 
 /**
- * スライス操作用のタスクを作成するファクトリインタフェースです。
+ * This interface designates slice operation task factory features.
  */
 public interface SliceTaskFactory {
 	
 	/**
-	 * 確認メッセージ：スライス生成
+	 * Confirmation message: Creates a slice.
 	 */
     String CREATE_TASK_LB = "Will you continue the create process ?";
     
 	/**
-	 * 確認メッセージ：スライス削除
+	 * Confirmation message: Deletes a slice.
 	 */
     String DELETE_TASK_LB = "Will you continue the delete process ?";
     
 	/**
-	 * 確認メッセージ：スライス更新
+	 * Confirmation message: Updates a slice.
 	 */
     String UPDATE_TASK_LB = "Will you continue the update process ?";
     
 	/**
-	 * 確認メッセージ：キャンセル
+	 * Confirmation message: Cancels the operation.
 	 */
     String CANCEL_TASK_LB = "Will you continue the cancel process ?";
     
 	/**
-	 * 確認メッセージ：スライス一覧取得
+	 * Confirmation message: Gets slice list.
 	 */
     String LIST_TASK_LB = "Is get slice list ?";
     
 	/**
-	 * 確認メッセージ：スライス情報取得
+	 * Confirmation message: Gets a slice.
 	 */
     String READ_TASK_LB = "Is get slice info ?";
 
 	/**
-	 * 確認メッセージ：簡易表示用スライス更新
-	 */
-    String SIMPLE_UPDATE_TASK_LB = "Will you continue the simple update process ?";
-
-	/**
-	 * スライス操作用のタスクを作成します。
-	 * @param taskKey スライス操作キー
-	 * @return タスクインスタンス
+	 * Creates a slice operation task.
+	 * @param taskKey the key of the task.
+	 * @return the task instance.
 	 */
 	SliceTask createTask(String taskKey);
 }

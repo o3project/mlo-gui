@@ -5,7 +5,7 @@
 package org.o3project.mlo.client.control;
 
 /**
- * MLOClientで発生する異常を表現する例外クラスの基底クラスです。
+ * This exception class designates failure occurred in mlo-client.
  */
 public abstract class MloClientException extends Exception {
 
@@ -15,17 +15,17 @@ public abstract class MloClientException extends Exception {
 	private static final long serialVersionUID = 5874369740311499855L;
 
 	/**
-	 * 指定されたエラーメッセージで例外を作成します。
-	 * @param msg エラーメッセージ
+	 * Constructs an instance with the specified detail message.
+	 * @param msg the detail message.
 	 */
 	public MloClientException(String msg) {
 		super(msg);
 	}
 
 	/**
-	 * 指定されたエラーメッセージと原因で例外を作成します。
-	 * @param msg エラーメッセージ
-	 * @param cause 原因
+	 * Constructs an instance with the specified cause and a detail message.
+	 * @param msg the detail message. 
+	 * @param cause the cause.
 	 */
 	public MloClientException(String msg, Throwable cause) {
 		super(msg, cause);

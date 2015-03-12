@@ -10,18 +10,18 @@ import org.o3project.mlo.server.dto.RestifRequestDto;
 import org.o3project.mlo.server.dto.RestifResponseDto;
 
 /**
- * MLO にアクセスするためのインタフェースです。
+ * This interface designates feature to access to mlo-srv.
  */
 public interface MloInvoker {
 
 	/**
-	 * MLO にアクセスし、レスポンスを受け取ります。
-	 * @param method HTTP メソッドインスタンス
-	 * @param reqDto MLO にリクエストする {@link RestifRequestDto} インスタンス
-	 * @param path URL パス
-	 * @param params クエリパラメータ
-	 * @return MLO からのレスポンス
-	 * @throws MloAccessException アクセス異常例外
+	 * Accesses to mlo-srv, and then receives the response.
+	 * @param method the HTTP method instance.
+	 * @param reqDto the request DTO.
+	 * @param path the URL path.
+	 * @param params the query parameters.
+	 * @return the response DTO.
+	 * @throws MloAccessException Failed to access to mlo-srv.
 	 */
 	RestifResponseDto invoke(MloMethod method, 
 			RestifRequestDto reqDto, String path, Map<String, String> params) 

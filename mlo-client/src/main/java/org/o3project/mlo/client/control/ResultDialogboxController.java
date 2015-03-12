@@ -7,28 +7,27 @@ package org.o3project.mlo.client.control;
 import javafx.scene.control.Button;
 
 /**
- * 結果表示ダイアログボックスの制御インタフェースです。
- *
+ * This interface designates UI controlling features of result dialog box.
  */
 public interface ResultDialogboxController {
 
 	/**
-	 * OK ボタンを取得します。
-	 * OK ボタンを押下された際のハンドラをボタンに設定してください。
-	 * @return OK ボタン
+	 * Obtains OK button.
+	 * For example, this method is called in setting UI handler to this button.
+	 * @return the OK button.
 	 */
 	Button getOkButton();
 	
 	/**
-	 * ダイアログボックスを表示します。
-	 * @param title ダイアログボックスのタイトル
-	 * @param message ダイアログボックスのメッセージ
-	 * @param detail ダイアログボックスのメッセージ詳細
+	 * Shows this dialog box.
+	 * @param title the title.
+	 * @param message the message.
+	 * @param detail the detail message.
 	 */
 	void showDialog(String title, String message, String detail);
 	
 	/**
-	 * ダイアログボックスを閉じます。
+	 * Close this dialog box.
 	 */
 	void closeDialog();
 }

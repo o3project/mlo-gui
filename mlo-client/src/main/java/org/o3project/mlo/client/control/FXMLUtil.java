@@ -12,26 +12,24 @@ import org.apache.commons.logging.LogFactory;
 import javafx.fxml.FXMLLoader;
 
 /**
- * FXML 用ユーティリティクラスです。
- *
+ * This class is utility class for FXML.
  */
 public final class FXMLUtil {
 	private static final Log LOG = LogFactory.getLog(FXMLUtil.class);
 
 	/**
-	 * コンストラクタ 
+	 * A constructor.
 	 */
 	private FXMLUtil() {
 		super();
 	}
 	
 	/**
-	 * FXML ファイルをロードしてコントローラインスタンスを取得します。
-	 * 指定されたファイル名の FXML ファイルをロードし、そのコントローラインスタンスを返します。
-	 * FXML ファイルは、コントローラクラスのクラスファイルと同一パスに存在する必要があります。
-	 * @param controllerType 取得するコントローラの型。FXML で指定された型と同一である必要があります。
-	 * @param fxmlFileName FXML ファイル名
-	 * @return コントローラインスタンス
+	 * Loads specified FXML file, and then creates UI controller instance.
+	 * FXML file must located at the same directory as UI controller class file.
+	 * @param controllerType the class of UI controller. This class must be specified in FXML file.
+	 * @param fxmlFileName the FXML file name.
+	 * @return the UI controller instance.
 	 */
 	public static <T> T createController(Class<T> controllerType, String fxmlFileName) {
 		T obj = null;
@@ -45,5 +43,4 @@ public final class FXMLUtil {
 		}
 		return obj;
 	}
-
 }

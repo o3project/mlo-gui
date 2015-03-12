@@ -11,28 +11,22 @@ import org.o3project.mlo.server.dto.RestifRequestDto;
 import org.o3project.mlo.server.dto.RestifResponseDto;
 
 /**
- * MLO NBIで使用されるオブジェクト のデシリアライザおよびシリアライザインタフェースです。
- * <ul>
- * <li>内部で処理したオブジェクトを外部へリクエストとして返すために書き出しを行う</li>
- * <li>外部からのレスポンスを、内部で処理するためにオブジェクト化する</li>
- * </ul>
+ * This interface designates serializer-deserializer feature in mlo-client.
  */
 public interface MloSerdes {
 
 	/**
-	 * MLO NBI のレスポンス XML を含んだストリームを読み取り、レスポンスオブジェクトを生成します。
-	 * 
-	 * @param istream XML を含む入力ストリーム
-	 * @return MLO NBI レスポンスオブジェクト
+	 * Desirializes response DTO from input stream including response XML data.
+	 * @param istream the input stream.
+	 * @return the response DTO from mlo-srv.
 	 */
 	RestifResponseDto deserializeFromXml(InputStream istream);
 
 	/**
-	 * MLO NBI のリクエストオブジェクトを指定された出力ストリームに書き出します。
-	 * このメソッドは RuntimeException をスローする可能性があります。
-	 * 
-	 * @param reqDto MLO NBI のリクエストオブジェクト
-	 * @param ostream XML 出力先ストリーム
+	 * Serializes request DTO into output stream.
+	 * This method may throw RuntimeException.
+	 * @param reqDto the request DTO.
+	 * @param ostream the output stream.
 	 */
 	void serializeToXml(RestifRequestDto reqDto, OutputStream ostream);
 

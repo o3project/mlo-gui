@@ -9,46 +9,46 @@ import java.util.List;
 import org.o3project.mlo.server.dto.SliceDto;
 
 /**
- * 検証アプリとMLO間でのデータI/Oを制御するクラスのインタフェースです。
+ * This interface designates boundary feature of mlo-srv.
  */
 public interface SliceDataManager {
 
 	/**
-	 * スライス一覧を取得します。
-	 * @return スライス一覧
-	 * @throws MloClientException 処理中に発生した異常
+	 * Obtains slice list.
+	 * @return the slices.
+	 * @throws MloClientException Failed to process.
 	 */
 	List<SliceDto> getSliceList() throws MloClientException;
 	
 	/**
-	 * スライス情報を取得します。
-	 * @param slice リクエスト用のスライス情報
-	 * @return スライス情報
-	 * @throws MloClientException 処理中に発生した異常
+	 * Obtains a slice.
+	 * @param the requested slice DTO.
+	 * @return the slice DTO.
+	 * @throws MloClientException Failed to process.
 	 */
 	SliceDto getSliceInfo(SliceDto slice) throws MloClientException;
 	
 	/**
-	 * スライス情報を登録します。
-	 * @param slice スライス情報
-	 * @return リクエスト結果
-	 * @throws MloClientException 処理中に発生した異常
+	 * Creates a slice.
+	 * @param the requested slice DTO.
+	 * @return the slice DTO.
+	 * @throws MloClientException Failed to process.
 	 */
 	SliceDto createSliceInfo(SliceDto slice) throws MloClientException;
 	
 	/**
-	 * スライス情報を更新します。
-	 * @param slice スライス情報
-	 * @return リクエスト結果
-	 * @throws MloClientException 処理中に発生した異常
+	 * Updates a slice.
+	 * @param the requested slice DTO.
+	 * @return the slice DTO.
+	 * @throws MloClientException Failed to process.
 	 */
 	SliceDto updateSliceInfo(SliceDto slice) throws MloClientException;
 	
 	/**
-	 * スライス情報を削除します。
-	 * @param slice スライス情報
-	 * @return リクエスト結果
-	 * @throws MloClientException 処理中に発生した異常
+	 * Deletes a slice.
+	 * @param the requested slice DTO.
+	 * @return the slice DTO.
+	 * @throws MloClientException Failed to process.
 	 */
 	SliceDto deleteSliceInfo(SliceDto slice) throws MloClientException;
 	

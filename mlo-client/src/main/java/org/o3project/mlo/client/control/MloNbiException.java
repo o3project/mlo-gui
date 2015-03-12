@@ -7,7 +7,7 @@ package org.o3project.mlo.client.control;
 import org.o3project.mlo.server.dto.RestifErrorDto;
 
 /**
- * MLO の NBI で返却されるエラーを表現する例外クラスです。
+ * This exception class designates failure occurred in accessing mlo-srv NBI.
  */
 public class MloNbiException extends MloClientException {
 
@@ -19,9 +19,9 @@ public class MloNbiException extends MloClientException {
 	private final RestifErrorDto errorDto;
 
 	/**
-	 * 指定されたエラーメッセージで例外を作成します。
-	 * @param msg エラーメッセージ
-	 * @param errorDto MLO NBI で返却されたエラー DTO
+	 * Constructs an instance with the specified detail message.
+	 * @param msg the message
+	 * @param errorDto Error DTO received from mlo-srv.
 	 */
 	public MloNbiException(String msg, RestifErrorDto errorDto) {
 		super(msg);
@@ -29,8 +29,8 @@ public class MloNbiException extends MloClientException {
 	}
 
 	/**
-	 * MLO NBI で返却されたエラー DTO を取得します。
-	 * @return MLO NBI で返却されたエラー DTO
+	 * Obtains error DTO.
+	 * @return the error DTO.
 	 */
 	public RestifErrorDto getErrorDto() {
 		return errorDto;

@@ -7,49 +7,49 @@ package org.o3project.mlo.client.control;
 import org.o3project.mlo.server.dto.RestifRequestDto;
 
 /**
- * MLO サーバへの並列実行や連続運転を行うためのインタフェースです。<br>
- * このインタフェースは、MLO サーバの負荷実行を検証するために使用します。
+ * This interface designates features to access to mlo-srv.
+ * This is used only for debug.
  */
 public interface RequestorService {
 
 	/**
-	 * スライス要求を並列で実行します。
+	 * Requests to create multiple slices concurrently to mlo-srv.
 	 * @param requestType CREATE/UPDATE/DELETE/READ
-	 * @param requestTemplate スライス情報
-	 * @param threadNum 同時実行数
+	 * @param requestTemplate the template of request DTO.
+	 * @param threadNum the number of slices.
 	 */
 	void request(String requestType, RestifRequestDto requestTemplate, int threadNum);
 
 	/**
-	 * 日立単独デモ環境を想定した、連続運転を行います。
-	 * 以下の操作を無限に繰り返します。
+	 * Requests continuously to mlo-srv with mloClient configuration.
+	 * The following operation set is repeatedly requested until stopped.
 	 * <ul>
-	 *  <li>スライス作成
-	 *  <li>スライス取得
-	 *  <li>スライス変更（フロー追加）
-	 *  <li>スライス取得
-	 *  <li>スライス変更（フロー変更）
-	 *  <li>スライス取得
-	 *  <li>スライス変更（フロー削除）
-	 *  <li>スライス取得
-	 *  <li>スライス削除
+	 *  <li>Creates a slice.
+	 *  <li>Gets the slice.
+	 *  <li>Update the slice (Adds a flow).
+	 *  <li>Gets the slice.
+	 *  <li>Update the slice (Modifies a flow).
+	 *  <li>Gets the slice.
+	 *  <li>Update the slice (Deletes a flow).
+	 *  <li>Gets the slice.
+	 *  <li>Deletes the slice.
 	 * </ul>
 	 */
 	void requestMloClient();
 
 	/**
-	 * 他社連携デモ環境を想定した、連続運転を行います。
-	 * 以下の操作を無限に繰り返します。
+	 * Requests continuously to mlo-srv with demoApl configuration.
+	 * The following operation set is repeatedly requested until stopped.
 	 * <ul>
-	 *  <li>スライス作成
-	 *  <li>スライス取得
-	 *  <li>スライス変更（フロー追加）
-	 *  <li>スライス取得
-	 *  <li>スライス変更（フロー変更）
-	 *  <li>スライス取得
-	 *  <li>スライス変更（フロー削除）
-	 *  <li>スライス取得
-	 *  <li>スライス削除
+	 *  <li>Creates a slice.
+	 *  <li>Gets the slice.
+	 *  <li>Update the slice (Adds a flow).
+	 *  <li>Gets the slice.
+	 *  <li>Update the slice (Modifies a flow).
+	 *  <li>Gets the slice.
+	 *  <li>Update the slice (Deletes a flow).
+	 *  <li>Gets the slice.
+	 *  <li>Deletes the slice.
 	 * </ul>
 	 */
 	void requestDemoApl();

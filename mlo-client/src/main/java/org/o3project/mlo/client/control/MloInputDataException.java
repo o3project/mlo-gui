@@ -5,8 +5,7 @@
 package org.o3project.mlo.client.control;
 
 /**
- * MLO Clientで入力値エラーが発生する異常を表現する例外クラスです。
- * 入力したフロー情報が不正な値の場合に、この例外がスローされます。
+ * This exception class designates anomaly of input data in mlo-client.
  */
 public class MloInputDataException extends MloClientException {
 	/**
@@ -15,17 +14,17 @@ public class MloInputDataException extends MloClientException {
 	private static final long serialVersionUID = 4060991710948010187L;
 
 	/**
-	 * 指定されたエラーメッセージで例外を作成します。
-	 * @param msg エラーメッセージ
+	 * Constructs an instance with the specified detail message.
+	 * @param msg the detail message.
 	 */
 	public MloInputDataException(String msg) {
 		super(msg);
 	}
 
 	/**
-	 * 指定されたエラーメッセージと原因で例外を作成します。
-	 * @param msg エラーメッセージ
-	 * @param cause 原因
+	 * Constructs an instance with the specified cause and a detail message.
+	 * @param msg the detail message. 
+	 * @param cause the cause.
 	 */
 	public MloInputDataException(String msg, Throwable cause) {
 		super(msg, cause);

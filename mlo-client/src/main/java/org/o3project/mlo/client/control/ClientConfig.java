@@ -5,44 +5,49 @@
 package org.o3project.mlo.client.control;
 
 /**
- * MLO 連携のコンフィグレーションを表現するインタフェースです。
- *
+ * This interface designates configurations of mlo-client.
  */
 public interface ClientConfig {
 
 	/**
-	 * MLO のベース URI を取得します。
-	 * @return ベース URI 文字列
+	 * Obtains the base URI of mlo-srv.
+	 * @return the base URI. 
 	 */
 	String getServerBaseUri();
 
 	/**
-	 * 検証アプリから MLO へ接続する際の接続タイムアウト時間を取得します。
-	 * 単位は秒です。
-	 * 0 が取得される場合は、タイムアウト時間を設定しません。
-	 * @return タイムアウト時間
+	 * Obtains the connection timeout in connecting from mlo-client to mlo-srv.
+	 * The unit is seconds.
+	 * If zero is obtained, no timeout is set.
+	 * @return the timeout.
 	 */
 	Integer getConnectionTimeoutSec();
 	
 	/**
-	 * 検証アプリから MLO へ接続する際の読み込みタイムアウト時間を取得します。
-	 * 単位は秒です。
-	 * 0 が取得される場合は、タイムアウト時間を設定しません。
-	 * @return タイムアウト時間
+	 * Obtains the read timeout in connecting from mlo-client to mlo-srv.
+	 * The unit is seconds.
+	 * If zero is obtained, no timeout is set.
+	 * @return the timeout.
 	 */
 	Integer getReadTimeoutSec();
 	
 	/**
-	 * 送信元機能コンポーネント名 を取得します。
-	 * @return 送信元機能コンポーネント名
+	 * Obtains source component name.
+	 * @return the source component name.
 	 */
 	String getSrcComponentName();
 
 	/**
-	 * 検証アプリを MLO 未接続で動作させるかを判定します。
-	 * @return  MLO接続設定
+	 * Designates whether the application behaves in dummy mode.
+	 * In dummy mode, the application uses dummy web api invoker, 
+	 * so it does not connect to MLO.
+	 * @return  Returns true in dummy mode.
 	 */
 	boolean getDummyInvokerSetFlag();
 	
+	/**
+	 * Obtains the topology view URI.
+	 * @return the URI.
+	 */
 	String getTopologyViewUri();
 }

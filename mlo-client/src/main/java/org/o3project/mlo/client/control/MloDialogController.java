@@ -28,7 +28,7 @@ import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 /**
- * 確認ダイアログボックスを表示するためのクラスです。
+ * This class is UI controller class for confirmation dialog box.
  */
 public class MloDialogController implements Initializable {
 	private static final Log LOG = LogFactory.getLog(MloDialogController.class);
@@ -46,7 +46,7 @@ public class MloDialogController implements Initializable {
 	private String msgLb;
 	
 	/**
-	 * ダイアログボックスを表示します。
+	 * Shows dialog box.
 	 */
 	public void showDaialog(){
 		
@@ -73,8 +73,8 @@ public class MloDialogController implements Initializable {
 	}
 	
 	/**
-	 * OKボタンが押された場合の処理です。
-	 * @param event イベント
+	 * Handles OK button pressed event.
+	 * @param event the event.
 	 */
 	@FXML
 	void handleBtnYesAction(ActionEvent event) {
@@ -116,8 +116,8 @@ public class MloDialogController implements Initializable {
 	}
 	
 	/**
-	 * Cancelボタンが押された場合の処理です
-	 * @param event イベント
+	 * Handles Cancel button pressed event.
+	 * @param event the event.
 	 */
 	@FXML
 	void handleBtnNoAction(ActionEvent event) {
@@ -125,40 +125,39 @@ public class MloDialogController implements Initializable {
 	}
 	
 	/**
-	 * 現在表示中の確認ダイアログボックス画面を取得します。
-	 * @return ダイアログボックス
+	 * Obtains confirmation dialog box.
+	 * @return the dialog box.
 	 */
 	private Window getWindow() {
         return dialogPanel.getScene().getWindow();
     }
 	
 	/**
-	 * インジケータを非表示にします。
+	 * Closes dialog box.
 	 */
 	public void closeDialog(){
 		indicatorStage.hide();
 	}
 
 	/**
-	 * インスタンスを取得します。
-	 * 
-	 * @return インスタンス
+	 * Obtains instance.
+	 * @return the instance.
 	 */
 	static MloDialogController getInstance(){
 		return instance;
 	}
 	
 	/**
-	 * 確認ダイアログボックスに表示するメッセージを設定します。
-	 * @param msgLb メッセージ
+	 * Sets body message.
+	 * @param msgLb the message.
 	 */
 	public void setMsgLabl(String msgLb){
 		this.msgLb = msgLb;
 	}
 	
 	/**
-	 * 表示中のラベルを取得します。
-	 * @return ラベル
+	 * Obtains label instance.
+	 * @return the label.
 	 */
 	public Label getMsg(){
 		return this.textLb;

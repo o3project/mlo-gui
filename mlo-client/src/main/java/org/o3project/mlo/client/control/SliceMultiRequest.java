@@ -5,33 +5,33 @@
 package org.o3project.mlo.client.control;
 
 /**
- * 複数のスライス操作を CLI でリクエストするためのインタフェースです。
+ * This interface designates features to request multiple slice operations from CLI.
  */
 public interface SliceMultiRequest {
 	/**
-	 * 引数で指定された数だけスライスを作成します。
-	 * @param sliceDataManager スライスデータマネージャ
-	 * @param nSlice スライス数
-	 * @param nFlowForSlice 1 スライス内のフロー数
-	 * @param bandWidth 使用帯域幅
-	 * @param latency 遅延時間
-	 * @throws InterruptedException 割り込み例外
+	 * Creates multiple slices.
+	 * @param sliceDataManager the slice data manager.
+	 * @param nSlice the number of slices.
+	 * @param nFlowForSlice the number of flows in a slice.
+	 * @param bandWidth the band width.
+	 * @param latency the delay time.
+	 * @throws InterruptedException Interrupted.
 	 */
 	void doCreateSlices(SliceDataManager sliceDataManager, Integer nSlice, Integer nFlowForSlice, Integer bandWidth, Integer latency) throws InterruptedException;
 	
 	/**
-	 * すべてのスライスを更新します。
-	 * @param sliceDataManager スライスデータマネージャ
-	 * @param bandWidth 使用帯域幅
-	 * @param latency 遅延時間
-	 * @throws InterruptedException 割り込み例外
+	 * Updates all slices.
+	 * @param sliceDataManager the slice data manager.
+	 * @param bandWidth the band width.
+	 * @param latency the delay time.
+	 * @throws InterruptedException Interrupted.
 	 */
 	void doUpdateAllSlices(SliceDataManager sliceDataManager, Integer bandWidth, Integer latency) throws InterruptedException;
 	
 	/**
-	 * すべてのスライスを削除します。
-	 * @param sliceDataManager スライスデータマネージャ
-	 * @throws InterruptedException 割り込み例外
+	 * Deletes all slices.
+	 * @param sliceDataManager the slice data manager.
+	 * @throws InterruptedException Interrupted.
 	 */
 	void doDeleteAllSlices(SliceDataManager sliceDataManager) throws InterruptedException;
 }
