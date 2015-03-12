@@ -318,8 +318,9 @@ class ConfigDefinition implements ClientConfigConstants {
 		props.put(PROP_KEY_SERVER_BASE_URI, "http://127.0.0.1:8080/DEMO");
 		props.put(PROP_KEY_SERVER_CONNECTION_TIMEOUT_SEC, "600");
 		props.put(PROP_KEY_SERVER_READ_TIMEOUT_SEC, "600");
-		props.put(PROP_KEY_SERVER_SRC_COMPONENT_NAME, CLIENT_TYPE_HITACHI);
-		props.put("#" + PROP_KEY_SERVER_SRC_COMPONENT_NAME, CLIENT_TYPE_OTHER);
+		
+		props.put("#" + PROP_KEY_SERVER_SRC_COMPONENT_NAME, "mloClient");
+		props.put(PROP_KEY_SERVER_SRC_COMPONENT_NAME, "developer");
 		
 		props.put(PROP_KEY_SERVER_DUMMY_INVOKER_SET_FLAG, "false");
 		
