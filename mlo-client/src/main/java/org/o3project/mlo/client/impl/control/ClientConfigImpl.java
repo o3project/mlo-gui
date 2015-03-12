@@ -11,7 +11,7 @@ import org.seasar.framework.container.annotation.tiger.Binding;
 import org.o3project.mlo.server.logic.ConfigProvider;
 
 /**
- * {@link ClientConfig} インタフェースの実装クラスです。
+ * This class is the implementation class of {@link ClientConfig} interface.
  */
 public class ClientConfigImpl implements ClientConfig, ClientConfigConstants {
 	
@@ -19,8 +19,8 @@ public class ClientConfigImpl implements ClientConfig, ClientConfigConstants {
 	private ConfigProvider configProvider;
 	
 	/**
-	 * {@link ConfigProvider}インスタンスの設定メソッド です。(DI セッタインジェクション用)
-	 * @param configProvider 設定インスタンス
+	 * Setter method (for DI setter injection).
+	 * @param configProvider the instance.
 	 */
 	public void setConfigProvider(ConfigProvider configProvider) {
 		this.configProvider = configProvider;

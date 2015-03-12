@@ -44,8 +44,7 @@ import org.o3project.mlo.server.dto.SliceDto;
 
 
 /**
- * MLOクライアントのメインクラスです。
- *
+ * This class is the main class of mlo-client.
  */
 public class MloClient extends Application implements CredentialListener, ChangeListener<String> {
 	private static final Log LOG = LogFactory.getLog(MloClient.class);
@@ -57,17 +56,17 @@ public class MloClient extends Application implements CredentialListener, Change
 	private Stage indicatorStage;
 		
 	/**
-	 * スライス情報表示画面コントローラ
+	 * Slice information view controller.
 	 */
 	public MloInfoViewController infoViewCtrl;
 	
 	/**
-	 * スライス更新画面コントローラ
+	 * Slice updating view controller.
 	 */
 	public MloUpdateViewController updateViewCtrl;
 	
 	/**
-	 * スライス作成画面コントローラ
+	 * Slice creation view controller.
 	 */
 	public MloCreateViewController createViewCtrl;
 	
@@ -96,7 +95,7 @@ public class MloClient extends Application implements CredentialListener, Change
 		LOG.info("MloClient#start() starts.");
 		instance = this;
 		
-		//　Seasar2 起動
+		//　Launches Seasar2 
 		try {
 			SingletonS2ContainerFactory.setConfigPath("app.dicon");
 			SingletonS2ContainerFactory.init();
@@ -114,7 +113,7 @@ public class MloClient extends Application implements CredentialListener, Change
 		
 		sliceTaskFactory = new SliceTaskFactoryImpl(this);
 		
-		// 画面のタイトルを設定
+		// Sets window title.
 		stage = primaryStage; 
 		stage.setTitle(ClientConfigConstants.APP_NAME);
 		//stage.setResizable(false);
@@ -129,10 +128,10 @@ public class MloClient extends Application implements CredentialListener, Change
 	
 		infoViewCtrl.setTopologyViewUrl(clientConfig.getTopologyViewUri());
 		
-		// 他社連携の場合、簡易表示ボタンを非表示にする
 		if(ClientConfigConstants.CLIENT_TYPE_OTHER.equals(clientConfig.getSrcComponentName())){
 		}
-		// フロー作成時に使用するデフォルトのフロー情報を設定
+		
+		// Sets default flow settings.
 		FlowDto defaultFlowDto = createDefaultFlowDto();
 		updateViewCtrl.setDefaultFlowDto(defaultFlowDto);
 		createViewCtrl.setDefaultFlowDto(defaultFlowDto);
@@ -170,13 +169,12 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 	
 	/**
-	 * JavaFXアプリケーションを起動します。
-	 * 
-	 * @param args パラメータ
+	 * Launches this application.
+	 * @param args parameters.
 	 */
 	public static void main(String[] args) {
-		// JavaFXアプリケーションを起動
 		if (args.length == 0) {
+			// Launches JavaFX application.
 			launch(args);
 		} else if (args.length > 0 && "-m".equals(args[0])) {
 			SliceMultiRequestImpl.main(args);
@@ -186,9 +184,8 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 	
 	/**
-	 * インスタンスを取得します。
-	 * 
-	 * @return インスタンス
+	 * Obtains the instance.
+	 * @return the instance.
 	 */
 	public static MloClient getInstance() { 
 		return instance; 

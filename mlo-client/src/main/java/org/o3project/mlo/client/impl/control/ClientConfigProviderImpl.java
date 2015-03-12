@@ -26,15 +26,14 @@ import org.seasar.framework.util.ResourceUtil;
 import org.o3project.mlo.server.logic.ConfigProvider;
 
 /**
- * MLO のコンフィグレーション提供インタフェースの実装クラスです。
- *
+ * This class is the implementation class of the mlo-client configuration.
  */
 public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigConstants {
 	
 	private static final Log LOG = LogFactory.getLog(ClientConfigProviderImpl.class);
 	
 	/**
-	 * デフォルトプロパティファイルのURL
+	 * URI of the default property file.
 	 */
 	static final URL DEFAULT_PROPERTIES_FILE_URL
 		= ResourceUtil.getResource("default.mlo-client.properties");
@@ -46,9 +45,8 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 	private final Object oMutex = new Object();
 
 	/**
-	 * 指定された情報にてインスタンスを生成します。
-	 * 
-	 * @param propertiesFilePath プロパティファイル (デフォルトを上書きする)
+	 * Constructs an instance.
+	 * @param propertiesFilePath the property file path, which overwrites default property values.
 	 */
 	public ClientConfigProviderImpl(String propertiesFilePath) {
 		this.propertiesFilePath = propertiesFilePath;
@@ -162,10 +160,10 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 	}
 	
 	/**
-	 * 指定されたファイルパスからプロパティをロードします。
-	 * @param configMap ロード先インスタンス
-	 * @param filePath　プロパティファイルパス
-	 * @throws IOException 読み込み時異常
+	 * Loads properties from specified file path.
+	 * @param configMap the properties loaded.
+	 * @param filePath　the property file path.
+	 * @throws IOException Failed to read.
 	 */
 	private static void loadConfigMapFrom(Map<String, String> configMap, String filePath) 
 			throws IOException {
@@ -187,10 +185,10 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 	}
 	
 	/**
-	 * 指定されたURLからプロパティをロードします。
-	 * @param configMap ロード先インスタンス
-	 * @param url　プロパティファイル URL
-	 * @throws IOException 読み込み時異常
+	 * Loads properties from specified URL.
+	 * @param configMap the properties loaded.
+	 * @param url　the URL of the property file.
+	 * @throws IOException Failed to read.
 	 */
 	private static void loadConfigMapFrom(Map<String, String> configMap, URL url) throws IOException {
 		InputStream istream = null;
@@ -210,10 +208,10 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 	}
 
 	/**
-	 * 指定された入力ストリームからプロパティをロードします。
-	 * @param configMap ロード先インスタンス
-	 * @param istream プロパティファイルの入力ストリーム
-	 * @throws IOException 読み込み時異常
+	 * Loads properties from input stream.
+	 * @param configMap the properties loaded.
+	 * @param istream input stream. 
+	 * @throws IOException Failed to read.
 	 */
 	private static void loadConfigMapFrom(Map<String, String> configMap, InputStream istream) throws IOException {
 		Properties props = new Properties();
@@ -225,8 +223,8 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 	}
 
 	/**
-	 * コンフィグレーションのデフォルトプロパティファイルを出力するメインメソッドです。 
-	 * @param args 引数（未使用）
+	 * Main method to output default configuration as property file.
+	 * @param args the arguments (not used).
 	 */
 	public static void main(String[] args) {
 		try {
@@ -241,10 +239,10 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 	}
 
 	/**
-	 * プロパティマップを指定されたファイルに保存します。
-	 * @param propsFile プロパティファイル
-	 * @param props プロパティマップ
-	 * @throws IOException 保存時の異常例外
+	 * Stores properties to specified file.
+	 * @param propsFile the property file.
+	 * @param props the property map.
+	 * @throws IOException Failed to store. 
 	 */
 	private static void storeProps(File propsFile, Map<String, String> props) throws IOException {
 		OutputStreamWriter oswriter = null;
@@ -298,24 +296,24 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 }
 
 /**
- * コンフィグレーションのデフォルト値を定義するクラスです。 
+ * This class is the definition class of default configuration values. 
  */
 class ConfigDefinition implements ClientConfigConstants {
 	
 	private ConfigDefinition(){}
 
 	/**
-	 * コンフィグレーションのデフォルト値を定義します。
-	 * @param props デフォルト値を登録するプロパティマップ
+	 * Defines default configuration values.
+	 * @param props Key-value properties.
 	 */
 	static void defineProps(Map<String, String> props) {
 		
 		/*
-		 * 全般
+		 * Common
 		 */
 		props.put(PROP_KEY_DEBUG_CLIENTS, "debugClient");
 		/*
-		 * MLO-SRV 関連
+		 * For mlo-srv.
 		 */
 		props.put(PROP_KEY_SERVER_BASE_URI, "http://127.0.0.1:8080/DEMO");
 		props.put(PROP_KEY_SERVER_CONNECTION_TIMEOUT_SEC, "600");
@@ -323,9 +321,6 @@ class ConfigDefinition implements ClientConfigConstants {
 		props.put(PROP_KEY_SERVER_SRC_COMPONENT_NAME, CLIENT_TYPE_HITACHI);
 		props.put("#" + PROP_KEY_SERVER_SRC_COMPONENT_NAME, CLIENT_TYPE_OTHER);
 		
-		/*
-		 * MLO-SRV 連携用
-		 */
 		props.put(PROP_KEY_SERVER_DUMMY_INVOKER_SET_FLAG, "false");
 		
 		props.put(PROP_KEY_SERVER_TOPOLOGY_VIEW_URI, "");

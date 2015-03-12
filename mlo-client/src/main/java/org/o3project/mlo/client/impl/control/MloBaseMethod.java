@@ -20,8 +20,7 @@ import org.o3project.mlo.client.control.MloSerdes;
 import org.seasar.framework.container.annotation.tiger.Binding;
 
 /**
- * MLOへのアクセスメソッドを持つ基底クラスです。
- *
+ * This class is the abstract base class of HTTP method in connecting to mlo-srv.
  */
 public abstract class MloBaseMethod implements MloMethod {
 
@@ -32,16 +31,16 @@ public abstract class MloBaseMethod implements MloMethod {
     private ClientConfig clientConfig;
 
     /**
-     * MloSerdesを設定します。
-     * @param mloSerdes 設定インスタンス
+     * Setter method (for DI setter injection).
+     * @param mloSerdes the instance. 
      */
     public void setMloSerdes(MloSerdes mloSerdes) {
         this.mloSerdes = mloSerdes;
     }
     
     /**
-     * MLO連携のコンフィグを設定します。
-     * @param clientConfig 設定インスタンス
+     * Setter method (for DI setter injection).
+     * @param clientConfig the instance.
      */
     public void setClientConfig(ClientConfig clientConfig) {
         this.clientConfig = clientConfig;
