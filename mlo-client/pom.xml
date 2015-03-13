@@ -82,7 +82,8 @@
 				<configuration>
 					<descriptors>
 						<descriptor>${basedir}/src/main/assembly/descriptor-bin.xml</descriptor>
-					</descriptors>				</configuration>
+					</descriptors>
+				</configuration>
 				<executions>
 					<execution>
 						<id>make-assembly</id>
