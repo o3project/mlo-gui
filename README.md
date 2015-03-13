@@ -56,7 +56,6 @@ mlo-gui can be launched in the following steps.
 1. Transfers *mlo-client-1.0-bin.zip* to Windows PC via SCP and so on, and then unzips it.
 2. Double-clicks *mlo-client-start.bat* including in the unzipped directory.
 
-To build mlo-gui, mlo-srv is required in mlo-net.
 
 
 
