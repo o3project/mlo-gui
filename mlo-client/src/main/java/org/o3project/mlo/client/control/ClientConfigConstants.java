@@ -68,6 +68,11 @@ public interface ClientConfigConstants {
 	 * The type of the property value is string.
 	 */
 	String PROP_KEY_SERVER_TOPOLOGY_VIEW_URI = PROP_KEY_PREFIX_ + "server.topologyViewUri";
+
+	/**
+	 * Default client component name. 
+	 */
+	String CLIENT_TYPE_DEFAULT = "developer";
 	
 	/**
 	 * demoApl client component name. 
@@ -89,3 +94,4 @@ public interface ClientConfigConstants {
 	 */
 	String APP_COPYRIGHT = "Copyright (C) 2015, Hitachi, Ltd. All rights reserved.";
 }
+

@@ -389,7 +389,17 @@ public class MloClient extends Application implements CredentialListener, Change
 		flowDto.name = "";
 		flowDto.protectionLevel = "0";
 		
-		if(ClientConfigConstants.CLIENT_TYPE_OTHER.equals(clientConfig.getSrcComponentName())){
+		String srcComponentName = clientConfig.getSrcComponentName();
+		if(ClientConfigConstants.CLIENT_TYPE_DEFAULT.equals(srcComponentName)){
+			final int bandWidth = 10;
+			final int delay = 25;
+			flowDto.srcCENodeName = "h1";
+			flowDto.srcCEPortNo = "eth1";
+			flowDto.dstCENodeName = "h2";
+			flowDto.dstCEPortNo = "eth1";
+			flowDto.reqBandWidth = bandWidth;
+			flowDto.reqDelay = delay;
+		} else if(ClientConfigConstants.CLIENT_TYPE_OTHER.equals(srcComponentName)){
 			final int otherBandWidth = 10;
 			final int otherDelay = 9999;
 			flowDto.srcCENodeName = "tokyo";

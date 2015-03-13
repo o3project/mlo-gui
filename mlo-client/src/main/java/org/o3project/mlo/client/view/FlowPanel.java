@@ -45,14 +45,11 @@ public class FlowPanel extends TitledPane {
     private static final String EDIT_PARAM_KEY_DST_CE_PORT_NO = "DestCEPortNo";
     
     /** 編集パラメータキー : フローの使用帯域幅 */
-    private static final String EDIT_PARAM_KEY_REQUEST_BANDWIDTH = "RequestBandWidth";
+    private static final String EDIT_PARAM_KEY_REQUEST_BANDWIDTH = "RequestBandWidth [Mbps]";
     
     /** 編集パラメータキー : フローへの要求遅延値 */
-    private static final String EDIT_PARAM_KEY_REQUEST_DELAY = "RequestDelay";
+    private static final String EDIT_PARAM_KEY_REQUEST_DELAY = "RequestDelay [msec]";
     
-    /** 編集パラメータキー : 冗長の有無 */
-    private static final String EDIT_PARAM_KEY_PROTECTION_LEVEL = "ProtectionLevel";
-
     // read用
     /** 閲覧パラメータキー : フロー名に紐付くID */
     private static final String READ_PARAM_KEY_FLOW_ID = "FlowId";
@@ -70,10 +67,10 @@ public class FlowPanel extends TitledPane {
     private static final String READ_PARAM_KEY_DST_PT_NODE_ID = "DestPTNodeId";
     
     /** 閲覧パラメータキー : フローの使用帯域幅 */
-    private static final String READ_PARAM_KEY_USED_BANDWITDH = "UsedBandWidth";
+    private static final String READ_PARAM_KEY_USED_BANDWITDH = "UsedBandWidth [Mbps]";
     
     /** 閲覧パラメータキー : フローで計測された遅延値 */
-    private static final String READ_PARAM_KEY_DELAY_TIME = "DelayTime";
+    private static final String READ_PARAM_KEY_DELAY_TIME = "DelayTime [msec]";
     
     /** 閲覧パラメータキー : リンクが経由するノードIDのリスト */
     private static final String READ_PARAM_KEY_UNDERLAY_LOGICAL_LIST = "UnderlayLogicalList";
@@ -115,7 +112,7 @@ public class FlowPanel extends TitledPane {
     private static final double READ_FLOW_TABLE_HEIGHT = 250d;
     
     /** 変種用フローテーブル高さ */
-    private static final double EDIT_FLOW_TABLE_HEIGHT = 230d;
+    private static final double EDIT_FLOW_TABLE_HEIGHT = 210d;
     
     // 閲覧用パネル幅
     /** 閲覧用フローパネル幅 */
@@ -360,7 +357,6 @@ public class FlowPanel extends TitledPane {
             paramMap.put(EDIT_PARAM_KEY_DST_CE_PORT_NO, defaultFlowDto.dstCEPortNo);
             paramMap.put(EDIT_PARAM_KEY_REQUEST_BANDWIDTH, String.valueOf(defaultFlowDto.reqBandWidth));
             paramMap.put(EDIT_PARAM_KEY_REQUEST_DELAY, String.valueOf(defaultFlowDto.reqDelay));
-            paramMap.put(EDIT_PARAM_KEY_PROTECTION_LEVEL, defaultFlowDto.protectionLevel);
         }else{
             paramMap.put(EDIT_PARAM_KEY_FLOW_NAME, "");
             paramMap.put(EDIT_PARAM_KEY_SRC_CE_NODE_NAME, "");
@@ -369,7 +365,6 @@ public class FlowPanel extends TitledPane {
             paramMap.put(EDIT_PARAM_KEY_DST_CE_PORT_NO, "");
             paramMap.put(EDIT_PARAM_KEY_REQUEST_BANDWIDTH, "");
             paramMap.put(EDIT_PARAM_KEY_REQUEST_DELAY, "");
-            paramMap.put(EDIT_PARAM_KEY_PROTECTION_LEVEL, "");
         }
         return paramMap;
     }
@@ -475,7 +470,7 @@ public class FlowPanel extends TitledPane {
         } catch (NumberFormatException e) {
             throw new MloInputDataException(ERROR_DETAIL_PREFIX + EDIT_PARAM_KEY_REQUEST_DELAY, e);
         }
-        flowdto.protectionLevel = dataMap.get(EDIT_PARAM_KEY_PROTECTION_LEVEL);
+        flowdto.protectionLevel = "0";
         return flowdto;
 
     }
@@ -520,7 +515,7 @@ public class FlowPanel extends TitledPane {
             throw new MloInputDataException(ERROR_DETAIL_PREFIX + EDIT_PARAM_KEY_REQUEST_DELAY, e);
         }
 
-        flowdto.protectionLevel = dataMap.get(EDIT_PARAM_KEY_PROTECTION_LEVEL);
+        flowdto.protectionLevel = "0";
         return flowdto;
     }
 
