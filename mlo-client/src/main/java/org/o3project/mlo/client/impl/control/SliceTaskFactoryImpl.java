@@ -16,7 +16,7 @@ import org.o3project.mlo.client.control.SliceTaskFactory;
 import org.o3project.mlo.server.dto.SliceDto;
 
 /**
- * {@link SliceTaskFactory} インタフェースの実装クラスです。
+ * This class is the implementation class of {@link SliceTaskFactory} interface.
  */
 public class SliceTaskFactoryImpl implements SliceTaskFactory {
     private static final Log LOG = LogFactory.getLog(SliceTaskFactoryImpl.class);
@@ -24,8 +24,8 @@ public class SliceTaskFactoryImpl implements SliceTaskFactory {
 	private final MloClient mloClient;
 	
 	/**
-	 * 指定された情報にてインスタンスを生成します。
-	 * @param mloClient {@link MloClient} インスタンス
+	 * A constructor.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	public SliceTaskFactoryImpl(MloClient mloClient) {
 		this.mloClient = mloClient;
@@ -51,7 +51,7 @@ public class SliceTaskFactoryImpl implements SliceTaskFactory {
         } else if (READ_TASK_LB.equals(taskKey)) {
         	task = new ReadSliceTask(mloClient);
         } else {
-            // 上記以外の処理
+            // Otherwise,
         	LOG.error("Invalid key specified: " + taskKey);
             throw new UnsupportedOperationException("Invalid key specified: " + taskKey);
         }
@@ -61,14 +61,14 @@ public class SliceTaskFactoryImpl implements SliceTaskFactory {
 }
 
 /**
- * キャンセル処理を表現するタスククラスです。
- * このタスクを実行すると canceled が必ず呼び出されます。
+ * This class designates the task canceling.
+ * Execution this task always calls "canceled".
  */
 class CancelTask extends SliceTask {
 
 	/**
-	 * コンストラクタ
-	 * @param mloClient {@link MloClient} インスタンス
+	 * A constructor.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	public CancelTask(MloClient mloClient) {
 		super(mloClient);
@@ -85,13 +85,13 @@ class CancelTask extends SliceTask {
 }
 
 /**
- * スライス作成処理タスククラスです。
+ * This class designates the slice creation task.
  */
 class CreateSliceTask extends SliceTask {
 
 	/**
-	 * コンストラクタ
-	 * @param mloClient {@link MloClient} インスタンス
+	 * A constructor.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	public CreateSliceTask(MloClient mloClient) {
 		super(mloClient);
@@ -115,13 +115,13 @@ class CreateSliceTask extends SliceTask {
 }
 
 /**
- * スライス削除処理タスククラスです。
+ * This class designates the slice deletion task.
  */
 class DeleteSliceTask extends SliceTask {
 
 	/**
-	 * コンストラクタ
-	 * @param mloClient {@link MloClient} インスタンス
+	 * A constructor.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	public DeleteSliceTask(MloClient mloClient) {
 		super(mloClient);
@@ -145,13 +145,13 @@ class DeleteSliceTask extends SliceTask {
 }
 
 /**
- * スライス更新処理タスククラスです。
+ * This class designates the slice updating task.
  */
 class UpdateSliceTask extends SliceTask {
 
 	/**
-	 * コンストラクタ
-	 * @param mloClient {@link MloClient} インスタンス
+	 * A constructor.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	public UpdateSliceTask(MloClient mloClient) {
 		super(mloClient);
@@ -175,13 +175,13 @@ class UpdateSliceTask extends SliceTask {
 }
 
 /**
- * スライス一覧取得処理タスククラスです。
+ * This class designates the slice list retrieving task.
  */
 class GetSlicesTask extends SliceTask {
 
 	/**
-	 * 指定された情報にてインスタンスを生成します。
-	 * @param mloClient {@link MloClient} インスタンス
+	 * A constructor.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	public GetSlicesTask(MloClient mloClient) {
 		super(mloClient);
@@ -204,13 +204,13 @@ class GetSlicesTask extends SliceTask {
 }
 
 /**
- * スライス読み込み処理タスククラスです。
+ * This class designates the slice retrieving task.
  */
 class ReadSliceTask extends SliceTask {
 
 	/**
-	 * コンストラクタ
-	 * @param mloClient {@link MloClient} インスタンス
+	 * A constructor.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	public ReadSliceTask(MloClient mloClient) {
 		super(mloClient);

@@ -192,7 +192,7 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 	
 	/**
-	 * スライス情報表示画面へ遷移します。 (スライス作成画面 Cancelボタン / スライス更新画面 Cancelボタン)
+	 * Transit to Info view.
 	 */
 	public void changeInfoView(){
 		infoViewCtrl.setUpView();
@@ -201,7 +201,7 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 	
 	/**
-	 * スライス更新画面へ遷移します。 (スライス情報表示画面 Editボタン)
+	 * Transit to Update view.
 	 */
 	public void changeUpdateView() {
 		updateViewCtrl.setUpView();
@@ -211,7 +211,7 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 	
 	/**
-	 * スライス作成画面へ遷移します。  (スライス情報表示画面 Addボタン)
+	 * Transit to Create view.
 	 */
 	public void changeCreateView() {
 		createViewCtrl.setUpView();
@@ -220,7 +220,8 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 
 	/**
-	 * @param root
+	 * Changes content.
+	 * @param root the root changed to.
 	 */
 	private void changeContent(Parent root) {
 		//mainViewCtrl.setBodyContent(root);
@@ -235,7 +236,7 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 	
 	/**
-	 * メイン画面を表示します。
+	 * Shows main window.
 	 */
 	public void showStage(){
 		changeInfoView();
@@ -243,8 +244,9 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 	
 	/**
-	 * インジケータ用のステージインスタンスを作成します。
-	 * @return インジケータ用のステージインスタンス
+	 * 
+	 * Creates indicator stage instance.
+	 * @return the instance.
 	 */
 	public static Stage createIndicatorStage() {
 		ProgressIndicator pi = new ProgressIndicator();
@@ -272,10 +274,10 @@ public class MloClient extends Application implements CredentialListener, Change
 	}
 
 	/**
-	 * 引数のエラー情報を元に結果表示ダイアログボックスを表示します。
-	 * エラーが null の場合、OKボタンが押されると、ダイアログボックスを閉じ、スライス情報表示画面に遷移する。
-	 * エラーが null ではない場合、OKボタンが押されると、ダイアログボックスを閉じ、遷移は行わない。
-	 * @param e エラー情報
+	 * Shows result dialog box.
+	 * If the argument is null, closes the dialog box, and then transit to Info view.
+	 * If the argument is not null, only closes the dialog box. 
+	 * @param e Error information.
 	 */
 	public void showResultAndGoBackToInfoView(final MloClientException e) {
         final ResultDialogboxController dlg = getResultDialogboxController();
@@ -309,79 +311,79 @@ public class MloClient extends Application implements CredentialListener, Change
 
 	
 	/**
-	 * インジケータの {@link Stage} インスタンスを取得します。
-	 * @return インスタンス
+	 * Obtains the indicator stage instance.
+	 * @return the instance.
 	 */
 	public Stage getIndicatorStage() {
 		return indicatorStage;
 	}
 	
 	/**
-	 * インジケータを非表示にします。
+	 * Invalidates indicator stage.
 	 */
 	public void closeDialog(){
 		indicatorStage.hide();
 	}
 
 	/**
-	 * 選択中のスライスを更新します。
-	 * @param sliceDto スライス情報
+	 * Sets selected slice.
+	 * @param sliceDto the slice DTO.
 	 */
 	public void setSelectSliceDto(SliceDto sliceDto){
 		this.selectSliceDto = sliceDto;
 	}
 	
 	/**
-	 * {@link SliceDataManager} インスタンスを取得します。
-	 * @return SliceDataManager インスタンス
+	 * Obtains {@link SliceDataManager} instance.
+	 * @return SliceDataManager the instance.
 	 */
 	public SliceDataManager getSliceDataManager() {
 		return sliceDataManager;
 	}
 	
 	/**
-	 * {@link ResultDialogboxController} インスタンスを取得します。
-	 * @return ResultDialogboxController インスタンス
+	 * Obtains {@link ResultDialogboxController} instance.
+	 * @return ResultDialogboxController the instance.
 	 */
 	public ResultDialogboxController getResultDialogboxController() {
 		return resultDlgCtrl;
 	}
 	
 	/**
-	 * {@link SliceTaskFactory} インスタンスを取得します。
-	 * @return インスタンス
+	 * Obtains {@link SliceTaskFactory} instance.
+	 * @return the instance.
 	 */
 	public SliceTaskFactory getSliceTaskFactory() {
 		return sliceTaskFactory;
 	}
 	
 	/**
-	 * {@link SliceTaskFactory} インスタンスを設定します。
-	 * @param sliceTaskFactory インスタンス
+	 * Sets {@link SliceTaskFactory} instance.
+	 * @param sliceTaskFactory the instance.
 	 */
 	void setSliceTaskFactory(SliceTaskFactory sliceTaskFactory) {
 		this.sliceTaskFactory = sliceTaskFactory;
 	}
 	
 	/**
-	 * {@link ExecutorService} インスタンスを取得します。
-	 * @return インスタンス
+	 * Obtains {@link ExecutorService} instance.
+	 * @return the instance.
 	 */
 	public ExecutorService getExecutorService() {
 		return executorService;
 	}
 	
 	/**
-	 * {@link ExecutorService} インスタンスを設定します。
-	 * @param executorService インスタンス
+	 * Sets {@link ExecutorService} instance.
+	 * @param executorService the instance.
 	 */
 	void setExecutorService(ExecutorService executorService) {
 		this.executorService = executorService;
 	}
 	
 	/**
-	 * デフォルトのフロー情報を作成します。
-	 * @return デフォルトフロー情報
+	 * Creates default flow DTO.
+	 * @return the flow DTO.
 	 */
 	private FlowDto createDefaultFlowDto(){
 		

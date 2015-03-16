@@ -15,7 +15,7 @@ import org.o3project.mlo.server.dto.RestifRequestDto;
 import org.o3project.mlo.server.dto.RestifResponseDto;
 
 /**
- * {@link MloSerdes} インタフェースの実装クラスです。
+ * This class is the implementation class of {@link MloSerdes} interface.
  */
 public class MloSerdesImpl implements MloSerdes {
 	

@@ -33,7 +33,7 @@ import org.o3project.mlo.server.dto.RestifRequestDto;
 import org.o3project.mlo.server.dto.SliceDto;
 
 /**
- * {@link RequestorService} インタフェースの実装クラスです。
+ * This class is the implementation class of {@link RequestorService} interface.
  */
 public class RequestorServiceImpl implements RequestorService {
 	
@@ -60,7 +60,7 @@ public class RequestorServiceImpl implements RequestorService {
 	private int flowCount = 1;
 	
 	/**
-	 * 並列実行用タスク
+	 * Concurrent execution task.
 	 */
 	private class RequestTask implements Callable<SliceDto> {
 
@@ -99,8 +99,8 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 	
 	/**
-	 * 指定された情報にてインスタンスを生成します。
-	 * @param sliceDataManager スライス情報管理
+	 * A constructor.
+	 * @param sliceDataManager the slice data manager.
 	 */
 	public RequestorServiceImpl(SliceDataManager sliceDataManager) {
 		this.sliceDataManager = sliceDataManager;
@@ -239,8 +239,8 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 	
 	/**
-	 * 日立単独デモ環境を想定した、追加用スライス情報を作成する。
-	 * @return 追加用SliceDto
+	 * Creates slice DTO for mloClient.
+	 * @return the slice DTO.
 	 */
 	private SliceDto createMloClientDto() {
 		
@@ -265,8 +265,8 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 	
 	/**
-	 * 他社連携デモ環境を想定した、追加用スライス情報を作成する。
-	 * @return 追加用SliceDto
+	 * Creates slice DTO for demoApl.
+	 * @return the slice DTO.
 	 */
 	private SliceDto createDemoAplDto() {
 		
@@ -292,9 +292,9 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 
 	/**
-	 * 情報取得リクエスト用のSliceDtoを作成する。
-	 * @param dto スライス情報
-	 * @return 情報取得用SliceDto
+	 * Creates slice DTO for READ request.
+	 * @param dto the slice DTO.
+	 * @return the slice DTO.
 	 */
 	private SliceDto readDto(SliceDto dto) {
 		
@@ -306,9 +306,9 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 	
 	/**
-	 * 日立単独デモ環境を想定した、更新用スライス情報（フロー追加）を作成する。
-	 * @param dto スライス情報（readで取得した内容）
-	 * @return 更新用SliceDto
+	 * Creates slice DTO for UPDATE request (adding a flow) for mloClient.
+	 * @param dto the obtained slice DTO.
+	 * @return the slice DTO.
 	 */
 	private SliceDto updateAddMloClientDto(SliceDto dto) {
 		
@@ -334,9 +334,9 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 	
 	/**
-	 * 他社連携デモ環境を想定した、更新用スライス情報（フロー追加）を作成する。
-	 * @param dto スライス情報（readで取得した内容）
-	 * @return 更新用SliceDto
+	 * Creates slice DTO for UPDATE request (adding a flow) for demoApl.
+	 * @param dto the obtained slice DTO.
+	 * @return the slice DTO.
 	 */
 	private SliceDto updateAddDemoAplDto(SliceDto dto) {
 		
@@ -363,9 +363,9 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 	
 	/**
-	 * 日立単独デモ環境を想定した、更新用スライス情報（フロー変更）を作成する。
-	 * @param dto スライス情報（readで取得した内容）
-	 * @return 更新用SliceDto
+	 * Creates slice DTO for UPDATE request (modifying a flow) for mloClient.
+	 * @param dto the obtained slice DTO.
+	 * @return the slice DTO.
 	 */
 	private SliceDto updateModMloClientDto(SliceDto dto) {
 		
@@ -392,9 +392,9 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 
 	/**
-	 * 他社連携デモ環境を想定した、更新用スライス情報（フロー変更）を作成する。
-	 * @param dto スライス情報（readで取得した内容）
-	 * @return 更新用SliceDto
+	 * Creates slice DTO for UPDATE request (modifying a flow) for demoApl.
+	 * @param dto the obtained slice DTO.
+	 * @return the slice DTO.
 	 */
 	private SliceDto updateModDemoAplDto(SliceDto dto) {
 		
@@ -423,9 +423,9 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 
 	/**
-	 * 更新リクエスト用（フロー削除）のSliceDtoを作成する
-	 * @param dto スライス情報（readで取得した内容）
-	 * @return 更新用SliceDto
+	 * Creates slice DTO for UPDATE request (deleting a flow).
+	 * @param dto the obtained slice DTO.
+	 * @return the slice DTO.
 	 */
 	private SliceDto updateDelDto(SliceDto dto) {
 		
@@ -444,9 +444,9 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 
 	/**
-	 * 削除リクエスト用のSliceDtoを作成する
-	 * @param dto スライス情報（readで取得した内容）
-	 * @return 削除用SliceDto
+	 * Creates slice DTO for DELETE request.
+	 * @param dto the obtained slice DTO.
+	 * @return the slice DTO.
 	 */
 	private SliceDto deleteDto(SliceDto dto) {
 		
@@ -458,13 +458,13 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 	
 	/**
-	 * スライス操作 CLI のメイン関数です。
-	 * @param args 引数
+	 * Main method.
+	 * @param args the arguments.
 	 */
 	public static void main(String[] args) {
 		SliceDataManager sliceDataManager = null;
 		ClientConfig clientConfig = null;
-		//　Seasar2 起動
+		//　launches Seasar2
 		try {
 			SingletonS2ContainerFactory.setConfigPath("app.dicon");
 			SingletonS2ContainerFactory.init();
@@ -496,10 +496,10 @@ public class RequestorServiceImpl implements RequestorService {
 	}
 	
 	/**
-	 * 処理を実行します。
-	 * @param requestor 実行インスタンス
-	 * @param clientConfig コンフィグ管理
-	 * @param args 引数
+	 * Executes task.
+	 * @param requestor the instance.
+	 * @param clientConfig the config instance.
+	 * @param args the arguments.
 	 */
 	static void doProcess(RequestorService requestor, ClientConfig clientConfig, String[] args) {
 		String requestType = null;

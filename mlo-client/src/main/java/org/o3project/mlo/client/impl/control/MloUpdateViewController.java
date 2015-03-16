@@ -34,7 +34,7 @@ import org.o3project.mlo.server.dto.FlowDto;
 import org.o3project.mlo.server.dto.SliceDto;
 
 /**
- * スライス更新画面のコントローラクラスです。
+ * This class is the view controller class of slice updating view.
  */
 public class MloUpdateViewController implements MloViewController, Initializable {
 	private static final Log LOG = LogFactory.getLog(MloUpdateViewController.class);
@@ -61,7 +61,7 @@ public class MloUpdateViewController implements MloViewController, Initializable
 	private Label copyrightLabel;
 	
 	/**
-	 * スライス情報テーブル
+	 * Slice information table.
 	 */
 	public MloCommonTable slicePropsDispTable;
 	
@@ -93,7 +93,7 @@ public class MloUpdateViewController implements MloViewController, Initializable
 	}
 
 	/**
-	 * ビュー要素のセットアップを行います。
+	 * Sets up view components.
 	 */
 	public void setUpView() {
 		targetSlice = null;
@@ -102,8 +102,8 @@ public class MloUpdateViewController implements MloViewController, Initializable
 	}
 	
 	/**
-	 * スライス情報を設定します。
-	 * @param slicedto スライス情報 DTO
+	 * Sets slice data.
+	 * @param slicedto the slice DTO.
 	 */
 	public void setData(SliceDto slicedto){
 		targetSlice = slicedto;
@@ -112,9 +112,9 @@ public class MloUpdateViewController implements MloViewController, Initializable
 	}
 	
 	/**
-	 * 引数で指定されたスライスのプロパティを表示する。
-	 * スライスが null の場合は空表示にする。
-	 * @param sliceDto 表示するスライス DTO
+	 * Sets up slice properties view.
+	 * If slice is null, displays nothing.
+	 * @param sliceDto the slice DTO.
 	 */
 	private void setUpSlicePropsView(SliceDto sliceDto) {
 		Pane basePane = propPanel;
@@ -136,9 +136,9 @@ public class MloUpdateViewController implements MloViewController, Initializable
 	}
 
 	/**
-	 * 引数で指定されたスライスのフローを表示する。
-	 * スライスが null の場合は空表示にする。
-	 * @param sliceDto 表示するスライス DTO
+	 * Sets up flow properties view.
+	 * If slice is null, displays nothing.
+	 * @param sliceDto the slice DTO.
 	 */
 	private void setUpSliceFlowsView(SliceDto sliceDto) {
 		Pane basePane = sliceFlowsDispVBox;
@@ -160,9 +160,9 @@ public class MloUpdateViewController implements MloViewController, Initializable
 	}
 	
 	/**
-	 * 画面の入力内容からスライス DTO を取得します。
-	 * @return スライス DTO
-	 * @throws MloInputDataException 入力異常
+	 * Obtains slice DTO from user input.
+	 * @return the slice DTO.
+	 * @throws MloInputDataException User input error.
 	 */
 	public SliceDto getData() throws MloInputDataException{
 		LOG.info("getData() called.");
@@ -170,7 +170,7 @@ public class MloUpdateViewController implements MloViewController, Initializable
 		sliceDto.id = targetSlice.id;
 		List<FlowDto> flowList = new ArrayList<FlowDto>();
 		
-		// フローごとに判定処理
+		// Checks for each flow.
 		FlowPanel[] flowPanels = sliceFlowsDispVBox.getChildren().toArray(new FlowPanel[0]);
 		for(FlowPanel flowPanel : flowPanels){
 			String flowType = flowPanel.getFlowType();
@@ -190,17 +190,17 @@ public class MloUpdateViewController implements MloViewController, Initializable
 	}
 	
 	/**
-	 * デフォルトフロー情報を設定します。
-	 * @param flowDto デフォルトフロー情報
+	 * Sets default flow DTO.
+	 * @param flowDto the default flow DTO.
 	 */
 	public void setDefaultFlowDto(FlowDto flowDto){
 		defaultFlowDto = flowDto;
 	}
 
 	/**
-	 * スライス更新画面のボタンのアクションハンドラです。
-	 * FXML からのハンドラ指定用です。
-	 * @param event アクションイベント
+	 * Handles button action.
+	 * This handler is specified in FXML.
+	 * @param event the action event.
 	 */
 	@FXML
 	void handleButtonAction(ActionEvent event) {

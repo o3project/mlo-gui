@@ -1,5 +1,5 @@
 
 /**
- * 検証アプリとMLO 間の通信制御機能を定義します。
+ * This package provides the implementation of view-control and comminucations with mlo-srv.
  */
 package org.o3project.mlo.client.impl.control;

@@ -23,191 +23,187 @@ import org.o3project.mlo.server.dto.FlowDto;
 import org.o3project.mlo.server.dto.LinkInfoDto;
 
 /**
- * フロー情報表示用のパネルクラスです。
+ * This class is to display flow information.
  */
 public class FlowPanel extends TitledPane {
 
-    // テーブル作成用パラメータ
-    // edit用
-    /** 編集パラメータキー : フロー名 */
+    // Parameters to create table.
+    // For editing
+    /** Editing parameter key : flow name. */
     private static final String EDIT_PARAM_KEY_FLOW_NAME = "FlowName";
     
-    /** 編集パラメータキー : フローの始点となるCE名 */
+    /** Editing parameter key : Source CE node name. */
     private static final String EDIT_PARAM_KEY_SRC_CE_NODE_NAME = "SourceCENodeName";
     
-    /** 編集パラメータキー : フローの始点となるCEのポート番号 */
+    /** Editing parameter key : Source CE node port. */
     private static final String EDIT_PARAM_KEY_SRC_CE_PORT_NO = "SourceCEPortNo";
     
-    /** 編集パラメータキー : フローの終点となるCE名 */
+    /** Editing parameter key : Destination CE node name. */
     private static final String EDIT_PARAM_KEY_DST_CE_NODE_NAME = "DestCENodeName";
     
-    /** 編集パラメータキー : フローの終点となるCEのポート番号 */
+    /** Editing parameter key : Destination CE port. */
     private static final String EDIT_PARAM_KEY_DST_CE_PORT_NO = "DestCEPortNo";
     
-    /** 編集パラメータキー : フローの使用帯域幅 */
+    /** Editing parameter key : Band width. */
     private static final String EDIT_PARAM_KEY_REQUEST_BANDWIDTH = "RequestBandWidth [Mbps]";
     
-    /** 編集パラメータキー : フローへの要求遅延値 */
+    /** Editing parameter key : Delay time. */
     private static final String EDIT_PARAM_KEY_REQUEST_DELAY = "RequestDelay [msec]";
     
-    // read用
-    /** 閲覧パラメータキー : フロー名に紐付くID */
+    // For displaying
+    /** Displaying parameter key : Flow ID */
     private static final String READ_PARAM_KEY_FLOW_ID = "FlowId";
     
-    /** 閲覧パラメータキー : フローの始点となるパケトラノード名 */
+    /** Displaying parameter key : Source PT node name. */
     private static final String READ_PARAM_KEY_SRC_PT_NODE_NAME = "SourcePTNodeName";
     
-    /** 閲覧パラメータキー : フローの始点となるパケトラノードID */
+    /** Displaying parameter key : Source PT node ID. */
     private static final String READ_PARAM_KEY_SRC_PT_PORT_ID = "SourcePTNodeId";
     
-    /** 閲覧パラメータキー : フローの終点となるパケトラノード名 */
+    /** Displaying parameter key : Destination PT node name. */
     private static final String READ_PARAM_KEY_DST_PT_NODE_NAME = "DestPTNodeName";
     
-    /** 閲覧パラメータキー : フローの終点となるパケトラノードID */
+    /** Displaying parameter key : Destination PT node ID. */
     private static final String READ_PARAM_KEY_DST_PT_NODE_ID = "DestPTNodeId";
     
-    /** 閲覧パラメータキー : フローの使用帯域幅 */
+    /** Displaying parameter key : Band width. */
     private static final String READ_PARAM_KEY_USED_BANDWITDH = "UsedBandWidth [Mbps]";
     
-    /** 閲覧パラメータキー : フローで計測された遅延値 */
+    /** Displaying parameter key : Delay time. */
     private static final String READ_PARAM_KEY_DELAY_TIME = "DelayTime [msec]";
     
-    /** 閲覧パラメータキー : リンクが経由するノードIDのリスト */
+    /** Displaying parameter key : Underlay logical list. */
     private static final String READ_PARAM_KEY_UNDERLAY_LOGICAL_LIST = "UnderlayLogicalList";
     
-    /** 閲覧パラメータキー : フローが経由するノードIDのリスト */
+    /** Displaying parameter key : Overlay logical list. */
     private static final String READ_PARAM_KEY_OVERLAY_LOGICAL_LIST = "OverlayLogicalList";
 
-    // LinkInfo用
-    /** リンクパラメータキー : リンクに対して一意に割り当てられるID */
+    // For LinkInfo
+    /** Link info parameter key : Link ID */
     private static final String LINK_PARAM_KEY_LINK_ID = "LinkId";
     
-    /** リンクパラメータキー : リンクの始点となるノードのノードID */
+    /** Link info parameter key : Source PT node name. */
     private static final String LINK_PARAM_KEY_SRC_PT_NODE_NAME = "SourcePTNodeName";
     
-    /** リンクパラメータキー : リンクの始点となるパケトラノード名 */
+    /** Link info parameter key : Source PT node ID. */
     private static final String LINK_PARAM_KEY_SRC_PT_NODE_ID = "SourcePTNodeId";
     
-    /** リンクパラメータキー : リンクの終点となるパケトラノード名 */
+    /** Link info parameter key : Destination PT node name. */
     private static final String LINK_PARAM_KEY_DST_PT_NODE_NAME = "DestPTNodeName";
     
-    /** リンクパラメータキー : リンクの終点となるノードのノードID */
+    /** Link info parameter key : Destination PT node ID. */
     private static final String LINK_PARAM_KEY_DST_PT_NODE_ID = "DestPTNodeId";
 
-    // マージン
-    /** レイアウトマージン */
+    // margins
+    /** layout margin */
     private static final double LAYOUT_MARGINE = 10d;
     
-    /** チョイスボックスY座標マージン  */
+    /** Choice box vertical margin.  */
     private static final double CHOICE_BOX_MARGINE_Y = 30d;
     
-    /** スクロールバー幅 */
+    /** Scroll bar width. */
     private static final double SCROLL_BAR_WIDTH = 10d;
     
-    // テーブル高さ
-    /** リンク情報テーブル高さ */
+    // Height of table.
+    /** Height of link info table. */
     private static final double LINK_TABLE_HEIGHT = 160d;
     
-    /** 閲覧用フローテーブル高さ */
+    /** Height of displaying flow table. */
     private static final double READ_FLOW_TABLE_HEIGHT = 250d;
     
-    /** 変種用フローテーブル高さ */
+    /** Height of editing flow table. */
     private static final double EDIT_FLOW_TABLE_HEIGHT = 210d;
     
-    // 閲覧用パネル幅
-    /** 閲覧用フローパネル幅 */
+    // Displaying panel width.
+    /** Width of displaying flow panel. */
     private static final double READ_FLOW_PANEL_WIDTH = 500d;
     
-    /** 編集用フローパネル幅 */
+    /** Width of editing flow panel. */
     private static final double EDIT_FLOW_PANEL_WIDTH = 720d;
     
-    // 編集用パネル高さ (フローテーブル高さ＋マージン）
-    /** 編集用パネル高さ */
+    // Height of editing panel (height of flow table plus the margin).
+    /** Height of editing panel.  */
     private static final double EDIT_PANEL_HEIGHT = EDIT_FLOW_TABLE_HEIGHT + LAYOUT_MARGINE;
     
-    // ラベル
-    /** ラベル幅 */
+    // Labels
+    /** Width of label. */
     private static final double LABEL_HEIGHT = 20d;
     
-    /** 削除用ラベルX座標マージン */
+    /** Horizontal margin of deletion label. */
     private static final double DISPLAY_DELETE_LABEL_MARGINE_X = 150d;
     
-    /** 削除用ラベルY座標マージン */
+    /** Vertical margin of deletion label. */
     private static final double DISPLAY_DELETE_LABEL_MARGINE_Y = LAYOUT_MARGINE;
     
-    // テーブル幅(エリア幅 - 左右のマージン - スクロールバー幅) 
-    /** 閲覧用フローテーブル幅 */
+    // Width of table (Width of area - margins of right and left - width of scroll bar)
+    /** Width of editing flow table. */
     private static final double READ_FLOW_TABLE_WIDTH = READ_FLOW_PANEL_WIDTH - (LAYOUT_MARGINE * 2) - SCROLL_BAR_WIDTH;
     
-    /** 編集用フローテーブル幅 */
+    /** Width of editing flow table. */
     private static final double EDIT_FLOW_TABLE_WIDTH = EDIT_FLOW_PANEL_WIDTH - (LAYOUT_MARGINE * 2) - SCROLL_BAR_WIDTH;
     
-    /** ラベル */
+    /** Label. */
     private Label lb;
     
-    /** 閲覧用パネル */
+    /** Displaying panel. */
     private AnchorPane readPanel;
     
-    /** 編集用パネル */
+    /** Editing panel. */
     private AnchorPane editPanel;
 
-    /** フローテーブル幅 */
+    /** Width of flow table. */
     private double flowTableWidth;
     
-    /** 閲覧用パネル高さ  */
+    /** Height of flow table. */
     private double readPanelHeight;
 
-    // フロー状態
-    /** フロー状態 : 変更なし */
+    // Flow status.
+    /** Flow status : no change. */
     public static final String FLOW_TYPE_NO_CHANGE = "no change";
     
-    /** フロー状態 : 追加 */
+    /** Flow status : add */
     public static final String FLOW_TYPE_ADD = "add";
     
-    /** フロー状態 : 削除 */
+    /** Flow status : delete */
     public static final String FLOW_TYPE_DELETE = "delete";
     
-    /** フロー状態 : 更新 */
+    /** Flow status : update */
     public static final String FLOW_TYPE_UPDATE = "update";
     
-    /** 選択中のフロー状態 */
+    /** Selected flow status. */
     private String selectType;
 
-    /** エラー文言の頭文字 */
+    /** Error detail prefix. */
     private static final String ERROR_DETAIL_PREFIX = "BadRequest/InvalidData/";
 
-    // 追加用フロー保持 編集用フロー保持
-    /** 編集用フローテーブル  */
+    /** Editing flow table. */
     private MloCommonTable editFlowTable = null;
     
-    /** フローパネルレイアウト */
+    /** Flow panel layout. */
     private final VBox flowDispVBox = new VBox();
 
-    /** 選択中のフロー情報 */
+    /** Selected flow DTO. */
     private FlowDto targetFlowDto;
     
     /**
-     * 追加用フローパネル生成用コンストラクタです。
-     * 
-     * @param title パネルタイトル
-     * @param defaultFlowDto デフォルトフロー情報
+     * A constructor.
+     * @param title the title of panel.
+     * @param defaultFlowDto the default flow DTO.
      */
     public FlowPanel(String title, FlowDto defaultFlowDto) {
-
-        // スーパークラス呼び出し
         super(title, null);
 
-        // フローパネルの幅を設定
+        // Sets width of flow panel.
         double flowAreaWidth = EDIT_FLOW_PANEL_WIDTH;
         flowTableWidth = EDIT_FLOW_TABLE_WIDTH;
 
-        // ベースパネルの作成
+        // Creates base panel.
         AnchorPane panel = new AnchorPane();
 
-        // 編集用パネル作成
+        // Creates editing panel.
         editPanel = new AnchorPane();
 
-        // 追加用テーブル作成
+        // Create table for adding.
         LinkedHashMap<String, String> paramMap = getEditFlowData(defaultFlowDto);
         editFlowTable = new MloCommonTable(paramMap, EDIT_FLOW_TABLE_WIDTH, true);
         editFlowTable.setLayoutX(0);
@@ -219,7 +215,7 @@ public class FlowPanel extends TitledPane {
         editPanel.setPrefSize(flowTableWidth, EDIT_PANEL_HEIGHT);
         editPanel.setVisible(true);
 
-        // ベースパネルに編集用パネルを追加
+        // Adds editing panel to base panel.
         panel.getChildren().add(editPanel);
 
         this.setContent(panel);
@@ -228,20 +224,19 @@ public class FlowPanel extends TitledPane {
     }
 
     /**
-     * 閲覧・編集用フローパネル生成用コンストラクタです。
-     * @param title パネルタイトル
-     * @param flowDto 対象となるフロー情報
-     * @param editFlag 編集か否か。編集ならば true、閲覧なら false を設定。
-     * @param defaultFlowDto デフォルトフロー情報。editFlag が false の場合は null を設定。
+     * A constructor for displaying and editing flow panel.
+     * @param title the title of the panel.
+     * @param flowDto the flow DTO.
+     * @param editFlag the flag whether editing layout or not. true if editing. false if displaying.
+     * @param defaultFlowDto the default flow DTO. If editing, this value should be null.
      */
     public FlowPanel(String title, FlowDto flowDto, boolean editFlag, FlowDto defaultFlowDto) {
-
-        // スーパークラス呼び出し
         super(title, null);
+        
         targetFlowDto = flowDto;
         double flowAreaWidth;
         double choiceMargin;
-        // フローパネルの幅を設定
+        // Sets width of flow panel.
         if (editFlag) {
             flowAreaWidth = EDIT_FLOW_PANEL_WIDTH;
             flowTableWidth = EDIT_FLOW_TABLE_WIDTH;
@@ -253,27 +248,27 @@ public class FlowPanel extends TitledPane {
         }
         double linkTableWidth = flowTableWidth - LAYOUT_MARGINE;
 
-        // ベースパネル作成
+        // Creates base panel.
         AnchorPane panel = new AnchorPane();
 
-        // 閲覧用パネル作成
+        // Creates displaying panel.
         readPanel = new AnchorPane();
         readPanel.setLayoutX(LAYOUT_MARGINE);
         readPanel.setLayoutY(LAYOUT_MARGINE + choiceMargin);
         readPanel.setVisible(true);
 
-        // 閲覧用フローテーブル作成
+        // Creates displaying flow table.
         LinkedHashMap<String, String> readFlowMap = getReadFlowData(flowDto);
         MloCommonTable readFlowTable = new MloCommonTable(readFlowMap, flowTableWidth, false);
         readFlowTable.setPrefSize(flowTableWidth, READ_FLOW_TABLE_HEIGHT);
         flowDispVBox.getChildren().add(readFlowTable);
 
-        // 閲覧用リンクテーブル作成
+        // Creates displaying link tables.
         Label lb1 = null;
         int i = 1;
         List<LinkInfoDto> linkInfoList = flowDto.linkInfoList;
         for (LinkInfoDto linkInfo : linkInfoList) {
-            // 閲覧用リンクテーブル作成
+            // Creates each displaying link table.
             lb1 = new Label("<LinkInfo " + i + ">");
             lb1.setPrefHeight(LABEL_HEIGHT);
             flowDispVBox.getChildren().add(lb1);
@@ -284,20 +279,20 @@ public class FlowPanel extends TitledPane {
             i++;
         }
 
-        // 配置
+        // Layout.
         readPanel.getChildren().add(flowDispVBox);
         
-        // 高さを計算 ( フローテーブル高さ + (リンクテーブル高さ＋ラベル高さ) * リンクテーブル数 + マージン)
+        // Calculates height (height of flow table + (height of link table + height of label) * the number of link table + margin).
         readPanelHeight = READ_FLOW_TABLE_HEIGHT + (LINK_TABLE_HEIGHT + LABEL_HEIGHT) * (i - 1) + LAYOUT_MARGINE;
         readPanel.setPrefSize(flowTableWidth, readPanelHeight);
 
-        // ベースパネルに閲覧用パネルを配置
+        // Layouts displaying panel to base panel.
         panel.getChildren().add(readPanel);
 
-        // 編集画面の場合
+        // In the case of editing.
         if (editFlag) {
 
-            // 編集用
+            // For editing.
             editPanel = new AnchorPane();
 
             ChoiceBox<String> cb = new ChoiceBox<String>();
@@ -317,7 +312,7 @@ public class FlowPanel extends TitledPane {
             lb.setStyle("-fx-text-fill: red");
             panel.getChildren().add(lb);
 
-            // 編集用フローテーブル作成
+            // Creates editing flow table.
             LinkedHashMap<String, String> paramMap = getEditFlowData(null);
             editFlowTable = new MloCommonTable(paramMap, flowTableWidth, true);
             editFlowTable.setLayoutX(0);
@@ -335,17 +330,16 @@ public class FlowPanel extends TitledPane {
 
         }
 
-        // ベースパネルの配置
+        // Layouts base panel.
         this.setContent(panel);
         this.setPrefWidth(flowAreaWidth);
 
     }
     
     /**
-     * 編集用フローテーブル情報マップを作成します。
-     * 
-     * @param defaultFlowDto デフォルトフロー情報
-     * @return 編集用フローテーブル情報
+     * Creates editing flow table map.
+     * @param defaultFlowDto the default flow DTO.
+     * @return editing flow information map.
      */
     private LinkedHashMap<String, String> getEditFlowData(FlowDto defaultFlowDto){
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<String, String>();
@@ -370,10 +364,9 @@ public class FlowPanel extends TitledPane {
     }
     
     /**
-     * 閲覧用フローテーブル情報を作成します。
-     * 
-     * @param flowDto 閲覧対象のフローDTO
-     * @return 閲覧用フローテーブル情報
+     * Creates displaying flow table.
+     * @param flowDto the flow DTO.
+     * @return the displaying flow table information.
      */
     private LinkedHashMap<String, String> getReadFlowData(FlowDto flowDto){
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<String, String>();
@@ -390,10 +383,9 @@ public class FlowPanel extends TitledPane {
     }
     
     /**
-     * リンクテーブル情報を作成します。
-     * 
-     * @param linkInfo 対象のリンクDTO
-     * @return リンクテーブル情報
+     * Creates link table information.
+     * @param linkInfo the link info DTO.
+     * @return the link table.
      */
     private LinkedHashMap<String, String> getReadLinkInfoData(LinkInfoDto linkInfo){
         LinkedHashMap<String, String> paramMap = new LinkedHashMap<String, String>();
@@ -406,9 +398,8 @@ public class FlowPanel extends TitledPane {
     }
     
     /**
-     * チョイスボックスにアクションを登録します。
-     * 
-     * @param cb アクションを設定するチョイスボックス
+     * Sets choice box action.
+     * @param cb the choice box.
      */
     private void setChoiceAction(ChoiceBox<String> cb){
         cb.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Object>() {
@@ -446,10 +437,9 @@ public class FlowPanel extends TitledPane {
     }
 
     /**
-     * 追加用フローDTOを作成します。
-     * 
-     * @return フロー DTO
-     * @throws MloInputDataException 入力値異常 
+     * Creates the adding flow DTO.
+     * @return the flow DTO.
+     * @throws MloInputDataException Error occurs in input data.
      */
     public FlowDto getCreateFlowDto() throws MloInputDataException {
         Map<String, String> dataMap = editFlowTable.getData();
@@ -476,9 +466,8 @@ public class FlowPanel extends TitledPane {
     }
 
     /**
-     * 削除用フローDTOを作成します。
-     * 
-     * @return フロー DTO
+     * Creates flow DTO for deletion.
+     * @return the flow DTO.
      */
     public FlowDto getDeleteFlowDto() {
         FlowDto flowdto = new FlowDto();
@@ -488,10 +477,9 @@ public class FlowPanel extends TitledPane {
     }
 
     /**
-     * 更新用フローDTOを作成します。
-     * 
-     * @return フロー DTO
-     * @throws MloInputDataException 入力値異常 
+     * Creates flow DTO for updating.
+     * @return the flow DTO.
+     * @throws MloInputDataException Error occurs in input data.
      */
     public FlowDto getUpdateFlowDto() throws MloInputDataException {
         Map<String, String> dataMap = editFlowTable.getData();
@@ -520,27 +508,26 @@ public class FlowPanel extends TitledPane {
     }
 
     /**
-     * フロー種別を返します。
-     * 
-     * @return フロー種別
+     * Obtains flow type.
+     * @return the flow type.
      */
     public String getFlowType() {
         return selectType;
     }
 
     /**
-     * 共通テーブルを設定します。テスト用。
-     * @param table 共通テーブル
+     * Sets common table (only for debugging).
+     * @param table the common table.
      */
     public void setTbView(MloCommonTable table) {
         this.editFlowTable = table;
     }
 
 	/**
-	 * インスタンスを片付けます。
-	 * JavaFX 2.2 TableView のメモリリークバグ対策。
-	 * JavaFX 2.2 TableView には、テーブル要素(行など)にフォーカスだけでメモリがリークするバグがある。
-	 * このクラス内の {@link MloCommonTable} のメモリリークの原因となる参照をこのメソッドで解除する。
+	 * Disposes this instance.
+	 * This is for workaround of memory leak of JavaFX 2.2 Table view.
+	 * JavaFX 2.2 TableView includes a bug of memory leak in focusing a table row.
+	 * This class releases references of {@link MloCommonTable} which causes a memory leak.
 	 */
     public void dispose() {
 		if (editFlowTable != null) {

@@ -23,8 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
 /**
- * クライアントに表示されるテーブルクラスです。
- *
+ * This class is the table view class.
  */
 public class MloCommonTable extends TableView<SliceData> {
 	
@@ -35,16 +34,16 @@ public class MloCommonTable extends TableView<SliceData> {
 	private static final double LAYOUT_MARGINE = 20d;
 	
 	/**
-	 * テーブルを作成します。
-	 * @param dataMap 表示するデータマップ
-	 * @param tableWidth テーブル幅
-	 * @param editFlag 編集中状態か否かを示すフラグ。true の場合編集中状態。
+	 * A constructor.
+	 * @param dataMap the data map to be displayed.
+	 * @param tableWidth the width of table.
+	 * @param editFlag the flag whether editing status or not. true if editing.
 	 */
 	public MloCommonTable(LinkedHashMap<String, String> dataMap, double tableWidth, boolean editFlag){
 		super();
 		double columnWidth = (tableWidth - LAYOUT_MARGINE) / 2;
 		
-		// テーブル用データの作成
+		// Creates data.
 		ObservableList<SliceData> data = FXCollections.observableArrayList();
 		
 		for(Map.Entry<String, String> entry : dataMap.entrySet()) {
@@ -88,10 +87,8 @@ public class MloCommonTable extends TableView<SliceData> {
 	}
 
 	/**
-	 * インスタンスに割り当てられていたメモリ領域を解放します。
-	 * JavaFX 2.2 TableView のメモリリークバグ対策。
-	 * JavaFX 2.2 TableView には、テーブル要素(行など)にフォーカスだけでメモリがリークするバグがある。
-	 * メモリリークの原因となる参照をこのメソッドで解除する。
+	 * Disposes allocated memory of this instance.
+	 * This is a workaround for bug of memory leak of JavaFX 2.2 TableView.
 	 */
 	public void dispose() {
 		
@@ -118,8 +115,8 @@ public class MloCommonTable extends TableView<SliceData> {
 	}
 	
 	/**
-	 * 入力したデータをテーブルに反映する。
-	 * @param nameCol 名前列
+	 * Updates view by input data.
+	 * @param nameCol the name column.
 	 */
 	private void updateObservableListProperties(TableColumn<SliceData, String> nameCol) {
 		nameCol.setOnEditCommit(new EventHandler<CellEditEvent<SliceData, String>>() {
@@ -130,8 +127,8 @@ public class MloCommonTable extends TableView<SliceData> {
 	} 
 	
 	/**
-	 * テーブルからデータを取得します。
-	 * @return データマップ
+	 * Obtains data from table.
+	 * @return the data map.
 	 */
 	public LinkedHashMap<String, String> getData(){
 		ObservableList<SliceData> oblist = this.getItems();

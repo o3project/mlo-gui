@@ -28,7 +28,7 @@ import org.o3project.mlo.server.dto.RestifResponseDto;
 import org.o3project.mlo.server.dto.SliceDto;
 
 /**
- * 検証アプリとMLO間でのデータI/Oを制御するインタフェースの実装クラスです。
+ * This class is the implementation class of {@link SliceDataManager} interface.
  */
 @Aspect("traceInterceptor")
 public class SliceDataManagerImpl implements SliceDataManager {
@@ -66,31 +66,31 @@ public class SliceDataManagerImpl implements SliceDataManager {
     private ClientConfig clientConfig;
 
     /**
-     * {@link MloInvoker} インスタンスのセッタメソッド です(DI インジェクション用)。
-     * @param mloInvoker 設定インスタンス
+     * Setter method (for DI setter injection).
+     * @param mloInvoker the instance.
      */
 	public void setMloInvoker(MloInvoker mloInvoker) {
 		this.mloInvoker = mloInvoker;
 	}
 
     /**
-     * GET メソッドのセッタメソッドです (DI インジェクション用)。
-     * @param mloGetMethod 設定インスタンス
+     * Setter method (for DI setter injection).
+     * @param mloGetMethod the instance.
      */
 	public void setMloGetMethod(MloMethod mloGetMethod) {
 		this.mloGetMethod = mloGetMethod;
 	}
 
     /**
-     * POST メソッドのセッタメソッドです (DI インジェクション用)。
-     * @param mloPostMethod 設定インスタンス
+     * Setter method (for DI setter injection).
+     * @param mloPostMethod the instance.
      */
 	public void setMloPostMethod(MloMethod mloPostMethod) {
 		this.mloPostMethod = mloPostMethod;
 	}
 
     /**
-     * Invoker設定用プロパティのセッタメソッドです (DI インジェクション用)。
+     * Setter method (for DI setter injection).
      * @param clientConfig the ClientConfig to set
      */
 	public void setClientConfig(ClientConfig clientConfig) {
@@ -98,7 +98,7 @@ public class SliceDataManagerImpl implements SliceDataManager {
 	}
 
     /**
-     * 初期化処理を実行します。
+     * Initializes this component.
      */
     @InitMethod
     public void init(){
@@ -191,9 +191,9 @@ public class SliceDataManagerImpl implements SliceDataManager {
 	}
 
 	/**
-	 * 指定されたスライス情報からリクエストDTOを生成します。
-	 * @param slice スライス情報
-	 * @return リクエストDTO
+	 * Creates the request DTO.
+	 * @param slice the slice DTO.
+	 * @return the request DTO.
 	 */
 	private RestifRequestDto createRequestDto(SliceDto slice) {
 

@@ -21,7 +21,7 @@ import org.o3project.mlo.server.dto.RestifRequestDto;
 import org.o3project.mlo.server.dto.RestifResponseDto;
 
 /**
- * {@link MloInvoker} インタフェースの実装クラスです。
+ * This class is the implementation class of {@link MloInvoker} interface.
  *
  */
 public class MloInvokerImpl implements MloInvoker {
@@ -53,14 +53,14 @@ public class MloInvokerImpl implements MloInvoker {
 	}
 	
 	/**
-	 * 実行処理の内部実装です。
-	 * @param method メソッドインスタンス
-	 * @param reqDto リクエストインスタンス
-	 * @param path URL パス
-	 * @param paramMap クエリパラメータ
-	 * @return レスポンスインスタンス
-	 * @throws IOException IO 例外
-	 * @throws MloException API 異常例外
+	 * This method is the implementation method to execute task.
+	 * @param method the method instance.
+	 * @param reqDto the request DTO.
+	 * @param path URL path.
+	 * @param paramMap the query parameters.
+	 * @return the response DTO.
+	 * @throws IOException IO error.
+	 * @throws MloException API anomaly error.
 	 */
 	private RestifResponseDto invokeInternal(MloMethod method, 
 			RestifRequestDto reqDto, String path, Map<String, String> paramMap) 

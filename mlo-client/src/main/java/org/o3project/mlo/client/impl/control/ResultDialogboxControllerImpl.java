@@ -20,8 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * 結果表示ダイアログボックス制御インタフェースの実装クラスです。
- *
+ * This class is the implementation class of {@link ResultDialogboxController} interface.
  */
 public class ResultDialogboxControllerImpl implements Initializable, ResultDialogboxController {
 	
@@ -52,14 +51,15 @@ public class ResultDialogboxControllerImpl implements Initializable, ResultDialo
 	}
 	
 	/**
-	 * {@link Stage} インスタンスを取得します。
-	 * @return インスタンス
+	 * Obtains {@link Stage} instance.
+	 * @return the instance.
 	 */
 	public Stage getStage() {
 		return stage;
 	}
 	
 	/**
+	 * Obtains OK button.
 	 * @return the okButton
 	 */
 	public Button getOkButton() {
@@ -67,7 +67,7 @@ public class ResultDialogboxControllerImpl implements Initializable, ResultDialo
 	}
 	
 	/**
-	 * ラベルを取得します。
+	 * Obtains the message label.
 	 * @return the msgLabel
 	 */
 	public Label getMsgLabel() {

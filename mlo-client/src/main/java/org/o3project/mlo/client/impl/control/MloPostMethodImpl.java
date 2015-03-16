@@ -5,7 +5,7 @@
 package org.o3project.mlo.client.impl.control;
 
 /**
- * {@link org.o3project.mlo.client.control.MloMethod} の POSTメソッド実装クラスです。
+ * This class is the implementation class of POST method of {@link org.o3project.mlo.client.control.MloMethod} interface.
  */
 public class MloPostMethodImpl extends MloBaseMethod {
 

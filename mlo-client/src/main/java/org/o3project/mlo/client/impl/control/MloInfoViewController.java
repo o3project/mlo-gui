@@ -45,7 +45,7 @@ import org.o3project.mlo.server.dto.FlowDto;
 import org.o3project.mlo.server.dto.SliceDto;
 
 /**
- * スライス情報表示画面のコントローラクラスです。
+ * This class is the view controller class for slice information view.
  */
 public class MloInfoViewController implements MloViewController, Initializable {
 	private static final Log LOG = LogFactory.getLog(MloInfoViewController.class);
@@ -132,26 +132,26 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 	
 	/**
-	 * ビュー要素のセットアップを行います。
+	 * Sets up view components.
 	 */
 	public void setUpView() {
-		targetSlice = null; // 表示した瞬間はスライス情報は空。
+		targetSlice = null; // Slice information is empty in displaying it.
 		
 		setButtonDisable(true);
 		
 		setUpSlicePropsView(targetSlice);
 		setUpSliceFlowsView(targetSlice);
 		
-		// スライス一覧取得処理
+		// Obtains information of slices.
 		doGetSlicesTask(MloClient.getInstance());
 		
 		topologyWebEngine = topologyWebView.getEngine();
 	}
 
 	/**
-	 * 引数で指定されたスライスのプロパティを表示する。
-	 * スライスが null の場合は空表示にする。
-	 * @param sliceDto 表示するスライス DTO
+	 * Sets up slice properties view.
+	 * If slice is null, shows nothing.
+	 * @param sliceDto the slice DTO.
 	 */
 	private void setUpSlicePropsView(SliceDto sliceDto) {
 		if (slicePropsDispTable != null) {
@@ -161,7 +161,7 @@ public class MloInfoViewController implements MloViewController, Initializable {
 		}
 		
 		if (sliceDto != null) {
-			// 選択したフロー情報を画面に表示する
+			// Displays selected flow information.
 			LinkedHashMap<String, String> sliceInfoMap = new LinkedHashMap<String, String>();
 			sliceInfoMap.put(SLICE_PARAM_KEY_ID, String.valueOf(sliceDto.id));
 			sliceInfoMap.put(SLICE_PARAM_KEY_NAME, sliceDto.name);
@@ -172,9 +172,9 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 
 	/**
-	 * 引数で指定されたスライスのフローを表示する。
-	 * スライスが null の場合は空表示にする。
-	 * @param sliceDto 表示するスライス DTO
+	 * Sets up flow properties information.
+	 * If slice is null, nothing is displayed.
+	 * @param sliceDto the slice DTO.
 	 */
 	private void setUpSliceFlowsView(SliceDto sliceDto) {
 		FlowPanel[] fps = sliceFlowsDispVBox.getChildren().toArray(new FlowPanel[0]);
@@ -194,8 +194,8 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 	
 	/**
-	 * スライス一覧を設定する。
-	 * @param dataMap スライス情報マップ
+	 * Sets slice list.
+	 * @param dataMap the slice information map.
 	 */
 	private void setSliceList(LinkedHashMap<String, Integer> dataMap){
 		sliceMap = dataMap;
@@ -210,8 +210,8 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 	
 	/**
-	 *  スライス情報を設定する
-	 * @param sliceDto スライス情報
+	 * Sets slice DTO.
+	 * @param sliceDto the slice DTO.
 	 */
 	private void setData(SliceDto sliceDto){
 		targetSlice = sliceDto;
@@ -220,8 +220,8 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 
 	/**
-	 * 削除用スライスDTOを作成します。
-	 * @return スライスDTO
+	 * Creates slice DTO for deletion.
+	 * @return the slice DTO.
 	 */
 	public SliceDto getDeleteSliceData(){
 		SliceDto sliceDto= new SliceDto();
@@ -230,8 +230,8 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 	
 	/**
-	 * 取得用スライスDTOを作成します。
-	 * @return スライスDTO
+	 * Creates slice DTO to get it.
+	 * @return the slice DTO.
 	 */
 	public SliceDto getReadSliceDto(){
 		SliceDto sliceDto= new SliceDto();
@@ -241,9 +241,9 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 	
 	/**
-	 * スライス情報表示画面内のボタンのアクションハンドラです。
-	 * FXML からのハンドラ指定用です。
-	 * @param event アクションイベント
+	 * Handles button actions.
+	 * This is specified in FXML.
+	 * @param event the action event.
 	 */
 	@FXML
 	void handleButtonAction(ActionEvent event) {
@@ -266,7 +266,7 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 	
 	/**
-	 * Editボタン及びDeleteボタン、SimpleViewボタンを非活性にするか否かを設定する。
+	 * Sets buttons to be disabled.
 	 */
 	private void setButtonDisable(boolean isDisable){
 		deleteSliceBt.setDisable(isDisable);
@@ -274,8 +274,8 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 	
 	/**
-	 * スライス一覧取得をタスク実行する。
-	 * @param mloClient {@link MloClient} インスタンス
+	 * Executes a task to get slice list.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	private void doGetSlicesTask(final MloClient mloClient) {
 		String taskKey = SliceTaskFactory.LIST_TASK_LB;
@@ -294,7 +294,7 @@ public class MloInfoViewController implements MloViewController, Initializable {
 				List<SliceDto> sliceDtos = task.getSliceDtoList();
 				MloClientException err = task.getError();
 
-				// 取得したスライスリストをデータとして設定
+				// Sets obtained slice list as data.
 				LinkedHashMap<String, Integer> newSliceMap = new LinkedHashMap<String, Integer>();
 				if (sliceDtos != null) {
 					for (SliceDto sliceDto : sliceDtos) {
@@ -305,10 +305,10 @@ public class MloInfoViewController implements MloViewController, Initializable {
 				
 				clearTopologyViewFlowList();
 				
-				// インジケータを閉じる
+				// Closes indicator.
 				mloClient.getIndicatorStage().hide();
 
-				// エラーがあれば結果ダイアログに表示
+				// Shows dialog box if error exists.
 				if (err != null) {
 					mloClient.showResultAndGoBackToInfoView(err);
 				}
@@ -319,8 +319,8 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 
 	/**
-	 * スライス読み込み処理タスクを実行する。
-	 * @param mloClient {@link MloClient} インスタンス
+	 * Executes a task to read a slice.
+	 * @param mloClient the {@link MloClient} instance.
 	 */
 	private void doReadSliceTask(final MloClient mloClient) {
 		final String taskKey = SliceTaskFactory.READ_TASK_LB;
@@ -339,7 +339,7 @@ public class MloInfoViewController implements MloViewController, Initializable {
 				List<SliceDto> sliceDtos = task.getSliceDtoList();
 				MloClientException err = task.getError();
 				
-				// 取得したスライスをデータとして設定
+				// Sets obtained slice to data.
 				SliceDto sliceDto = null;
 				if (sliceDtos != null && sliceDtos.size() > 0) {
 					sliceDto = task.getSliceDtoList().get(0);
@@ -350,10 +350,10 @@ public class MloInfoViewController implements MloViewController, Initializable {
 				
 				setTopologyViewFlowList(sliceDto);
 				
-				// インジケータを閉じる
+				// Closes indicator.
 				mloClient.getIndicatorStage().hide();
 				
-				// エラーがあれば結果ダイアログに表示
+				// Shows dialog box if error exists.
 				if (err != null) {
 					mloClient.showResultAndGoBackToInfoView(err);
 				}
@@ -418,6 +418,7 @@ public class MloInfoViewController implements MloViewController, Initializable {
 	}
 	
 	/**
+	 * Setter method.
 	 * @param topologyViewUrl the topologyViewUrl to set
 	 */
 	public void setTopologyViewUrl(String topologyViewUrl) {
@@ -425,6 +426,9 @@ public class MloInfoViewController implements MloViewController, Initializable {
 		reloadTopologyUrl();
 	}
 	
+	/**
+	 * Reloads topology url.
+	 */
 	public void reloadTopologyUrl() {
 		if (this.topologyViewUrl != null) {
 			topologyWebEngine.load(topologyViewUrl);

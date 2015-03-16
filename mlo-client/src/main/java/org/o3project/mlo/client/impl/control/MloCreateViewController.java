@@ -35,7 +35,7 @@ import org.o3project.mlo.server.dto.FlowDto;
 import org.o3project.mlo.server.dto.SliceDto;
 
 /**
- * スライス作成画面のコントローラクラスです。
+ * This class is the view controller class of Slice Creation View.
  */
 public class MloCreateViewController implements MloViewController, Initializable {
 	private static final Log LOG = LogFactory.getLog(MloCreateViewController.class);
@@ -61,7 +61,7 @@ public class MloCreateViewController implements MloViewController, Initializable
 	private Label copyrightLabel;
 	
 	/**
-	 * スライス情報テーブル
+	 * Slice information table.
 	 */
 	public MloCommonTable slicePropsDispTable;
 	
@@ -91,7 +91,7 @@ public class MloCreateViewController implements MloViewController, Initializable
 	}
 
 	/**
-	 * ビュー要素のセットアップを行います。
+	 * Sets up view components.
 	 */
 	public void setUpView() {
 		setUpSlicePropsView();
@@ -99,7 +99,7 @@ public class MloCreateViewController implements MloViewController, Initializable
 	}
 	
 	/**
-	 * スライスプロパティ表示部のセットアップを行う。
+	 * Sets up slice properties view.
 	 */
 	private void setUpSlicePropsView() {
 		Pane basePane = sliceInfoPanel;
@@ -118,7 +118,7 @@ public class MloCreateViewController implements MloViewController, Initializable
 	}
 
 	/**
-	 * スライスフロー表示部のセットアップを行う。
+	 * Sets up flow properties view.
 	 */
 	private void setUpSliceFlowsView() {
 		Pane basePane = sliceFlowsDispVBox;
@@ -135,16 +135,16 @@ public class MloCreateViewController implements MloViewController, Initializable
 	}
 	
 	/**
-	 * 画面の入力内容から {@link SliceDto} インスタンスを取得します。
-	 * @return インスタンス
-	 * @throws MloInputDataException 入力異常
+	 * Creates a slice DTO instance from user input.
+	 * @return the instance.
+	 * @throws MloInputDataException Input failure.
 	 */
 	public SliceDto getData() throws MloInputDataException{
 		SliceDto sliceDto= new SliceDto();
 		sliceDto.name = slicePropsDispTable.getData().get(SLICE_PARAM_KEY_NAME);
 		List<FlowDto> flowList = new ArrayList<FlowDto>();
 		
-		// フローごとに判定処理
+		// Checks for each flow.
 		for (Node node : sliceFlowsDispVBox.getChildren()) {
 			flowList.add(((FlowPanel) node).getCreateFlowDto());
 		}
@@ -154,17 +154,17 @@ public class MloCreateViewController implements MloViewController, Initializable
 	}
 	
 	/**
-	 * デフォルトフロー情報を設定します。
-	 * @param flowDto デフォルトフロー情報
+	 * Sets default flow DTO.
+	 * @param the default flow DTO.
 	 */
 	public void setDefaultFlowDto(FlowDto flowDto){
 		defaultFlowDto = flowDto;
 	}
 
 	/**
-	 * スライス作成画面のボタンのアクションハンドラです。
-	 * FXML からのハンドラ指定用。
-	 * @param event アクションイベント
+	 * Handles button action.
+	 * This handler is specified in FXML.
+	 * @param event the action event.
 	 */
 	@FXML
 	void handleButtonAction(ActionEvent event) {

@@ -12,8 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 /**
- * 編集用セルクラスです。
- *
+ * This class is the editing table cell view class.
  */
 public class EditingCell extends TableCell<SliceData, String> {
 
@@ -21,7 +20,7 @@ public class EditingCell extends TableCell<SliceData, String> {
 	private boolean inputFlag = false;
 	
 	/**
-	 * 編集用セルクラスのインスタンスを生成します。
+	 * A constructor.
 	 */
 	public EditingCell() {
 		textField.setText(getString());

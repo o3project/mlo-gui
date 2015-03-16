@@ -5,7 +5,7 @@
 package org.o3project.mlo.client.impl.control;
 
 /**
- * {@link org.o3project.mlo.client.control.MloMethod} の GETメソッド実装クラスです。
+ * This class is the implementation class of GET method of {@link org.o3project.mlo.client.control.MloMethod}.
  */
 public class MloGetMethodImpl extends MloBaseMethod {
 

@@ -33,7 +33,7 @@ import org.o3project.mlo.server.dto.FlowDto;
 import org.o3project.mlo.server.dto.SliceDto;
 
 /**
- * {@link SliceMultiRequest} インタフェースの実装クラスです。
+ * This class is the implementation class for {@link SliceMultiRequest} interface.
  */
 public class SliceMultiRequestImpl implements SliceMultiRequest {
 	
@@ -70,8 +70,8 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 	private final ClientConfig clientConfig;
 	
 	/**
-	 * 指定された情報にてインスタンスを生成します。
-	 * @param clientConfig コンフィグ管理
+	 * A constructor.
+	 * @param clientConfig the configuration instance.
 	 */
 	public SliceMultiRequestImpl(ClientConfig clientConfig) {
 		this.clientConfig = clientConfig;
@@ -215,12 +215,12 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 	}
 
 	/**
-	 * Createリクエスト用のスライス DTO リストを作成します。
-	 * @param nSlice スライス数
-	 * @param nFlowForSlice 1スライスあたりのフロー数
-	 * @param nBandWidth 使用帯域幅
-	 * @param nLatency 遅延時間
-	 * @return リクエスト用のスライス DTO リスト
+	 * Creates slice DTO list for CREATE request.
+	 * @param nSlice the number of slices.
+	 * @param nFlowForSlice the number of flows per a slice.
+	 * @param nBandWidth band width.
+	 * @param nLatency delay time.
+	 * @return the slice DTO list for request.
 	 */
 	List<SliceDto> createSliceDtos(final Integer nSlice, final Integer nFlowForSlice, final Integer nBandWidth, final Integer nLatency) {
 		List<SliceDto> sliceDtos = new ArrayList<SliceDto>();
@@ -242,11 +242,11 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 	}
 	
 	/**
-	 * Updateリクエスト用のスライス DTO リストを作成します。
-	 * @param registeredSlice 登録済みのスライス情報
-	 * @param nBandWidth 使用帯域幅
-	 * @param nLatency 遅延時間
-	 * @return リクエスト用のスライス DTO
+	 * Creates slice DTO list for UPDATE request.
+	 * @param registeredSlice the slice DTO.
+	 * @param nBandWidth band width.
+	 * @param nLatency delay time.
+	 * @return the slice DTO list for request.
 	 */
 	SliceDto updateSliceDto(final SliceDto registeredSlice, final Integer nBandWidth, final Integer nLatency) {
 		int nTotalFlowIdx = 0;
@@ -267,12 +267,12 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 	}
 	
 	/**
-	 * リクエスト用のフロー DTO を作成します。
-	 * @param name フロー名
-	 * @param portNo CE ポート番号
-	 * @param bandWidth 使用帯域幅
-	 * @param latency 遅延時間
-	 * @return フロー DTO
+	 * Creates flow DTO for request.
+	 * @param name the flow name.
+	 * @param portNo the CE port.
+	 * @param bandWidth the band width.
+	 * @param latency the delay time.
+	 * @return the flow DTO.
 	 */
 	FlowDto createRequestFlowDto(String name, Integer portNo, Integer bandWidth, Integer latency) {
 		String nodeNameSuffix = "";
@@ -301,9 +301,9 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 	}
 
 	/**
-	 * スライス DTO をログ出力します。
-	 * @param identifier 識別子 (Request/Response)
-	 * @param sliceDto スライス DTO
+	 * Logs slice DTO.
+	 * @param identifier the identifier (Request/Response)
+	 * @param sliceDto the slice DTO
 	 */
 	static void log(String identifier, SliceDto sliceDto) {
 		ByteArrayOutputStream ostream = null;
@@ -313,10 +313,10 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 		try {
 			LOG.info(ostream.toString("UTF-8"));
 		} catch (UnsupportedEncodingException e) {
-			LOG.error("UTF-8 unsupported", e); // UTF-8 がサポートされていないときのみ
+			LOG.error("UTF-8 unsupported", e); // Only if UTF-8 is not supported.
 		}
-		// ostream.close(); // ByteArrayOutputStream は閉じる必要なし
-		ostream = null; // gc のため明示的に null に
+		// ostream.close(); // Don't need close ByteArrayOutputSteam.
+		ostream = null;
 	}
 
 	private void handleExecutionException(ExecutionException e) {
@@ -330,8 +330,8 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 	}
 
 	/**
-	 * 複数スライス操作 CLI のメイン関数です。
-	 * @param args 引数
+	 * Main method.
+	 * @param args the arguments.
 	 */
 	public static void main(String[] args) {
 		SliceDataManager sliceDataManager = null;
@@ -367,10 +367,10 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 	}
 
 	/**
-	 * 処理を実行します。
-	 * @param req 実行インスタンス
-	 * @param sliceDataManager スライスデータマネージャインスタンス
-	 * @param args 引数
+	 * Executes a task.
+	 * @param req the request.
+	 * @param sliceDataManager the slice data manager.
+	 * @param args the arguments.
 	 */
 	static void doProcess(SliceMultiRequest req,
 			SliceDataManager sliceDataManager, String[] args) {
@@ -409,21 +409,21 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 }
 
 /**
- * スライス操作を表すインタフェースです。
+ * This interface denotes slice operation.
  */
 interface SliceOperation {
 	/**
-	 * スライスを操作します。
-	 * @param sliceDataManager スライスデータマネージャ
-	 * @param reqSliceDto 要求スライス DTO
-	 * @return　MLO から返却されたスライス DTO
-	 * @throws MloClientException　操作時異常
+	 * Executes to operate slice.
+	 * @param sliceDataManager the slice data manager.
+	 * @param reqSliceDto the requested slice DTO.
+	 * @return　the received slice DTO.
+	 * @throws MloClientException　Failed to operate.
 	 */
 	SliceDto operate(SliceDataManager sliceDataManager, SliceDto reqSliceDto) throws MloClientException;
 }
 
 /**
- * スライス操作のタスククラスです。
+ * This class is the task class to operate slice.
  */
 class ClientSliceOperationTask implements Callable<SliceDto> {
 	
@@ -438,12 +438,11 @@ class ClientSliceOperationTask implements Callable<SliceDto> {
 	private final SliceDataManager sliceDataManager; 
 	
 	/**
-	 * コンストラクタ
-	 *
-	 * @param name 名称
-	 * @param operation 操作
-	 * @param reqSliceDto 要求されたスライス情報
-	 * @param sliceDataManager スライスデータマネージャ
+	 * A constructor.
+	 * @param name the name.
+	 * @param operation the operation.
+	 * @param reqSliceDto the requested slice DTO.
+	 * @param sliceDataManager the slice data manager.
 	 */
 	public ClientSliceOperationTask(String name, SliceOperation operation, SliceDto reqSliceDto, SliceDataManager sliceDataManager) {
 		this.name = name;
