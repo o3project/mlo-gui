@@ -7,7 +7,7 @@ Supported platform
 - CPU architecture: x86 or x64
 - Memory: 3GB or more
 - HDD space: 1GB or more.
-- Operation system: Windows 7 or 8.1
+- Operating system: Windows 7 or 8.1
 
 
 Preparing runtime environment
@@ -20,7 +20,7 @@ beforehand.
 
 In this document, it is assumed that mlo-net environment has been 
 constructed as guest OS on Oracle VM VirtualBox, and then 
-port-forwarding setting of 8080 port has been set to Oracle VM 
+port-forwarding setting for 8080 port has been set to Oracle VM 
 VirtualBox.
 
 
