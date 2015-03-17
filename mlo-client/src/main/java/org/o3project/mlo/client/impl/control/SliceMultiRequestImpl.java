@@ -336,7 +336,7 @@ public class SliceMultiRequestImpl implements SliceMultiRequest {
 	public static void main(String[] args) {
 		SliceDataManager sliceDataManager = null;
 		ClientConfig clientConfig = null;
-		//　Seasar2 起動
+		// Launches Seasar2
 		try {
 			SingletonS2ContainerFactory.setConfigPath("app.dicon");
 			SingletonS2ContainerFactory.init();
@@ -416,8 +416,8 @@ interface SliceOperation {
 	 * Executes to operate slice.
 	 * @param sliceDataManager the slice data manager.
 	 * @param reqSliceDto the requested slice DTO.
-	 * @return　the received slice DTO.
-	 * @throws MloClientException　Failed to operate.
+	 * @return the received slice DTO.
+	 * @throws MloClientException Failed to operate.
 	 */
 	SliceDto operate(SliceDataManager sliceDataManager, SliceDto reqSliceDto) throws MloClientException;
 }

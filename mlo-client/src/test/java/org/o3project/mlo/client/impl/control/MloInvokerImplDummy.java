@@ -17,7 +17,7 @@ import org.o3project.mlo.server.dto.RestifResponseDto;
 import org.o3project.mlo.server.logic.MloException;
 
 /**
- * {@link MloInvoker} インタフェースの実装クラスです。
+ * This class is the dummy implementation class of {@link MloInvoker} interface.
  *
  */
 public class MloInvokerImplDummy implements MloInvoker {
@@ -48,14 +48,14 @@ public class MloInvokerImplDummy implements MloInvoker {
     }
 
     /**
-     * 実行処理の内部実装です。
-     * @param method メソッドインスタンス
-     * @param reqDto リクエストインスタンス
-     * @param path URL パス
-     * @param paramMap クエリパラメタ
-     * @return レスポンスインスタンス
-     * @throws IOException IO 例外
-     * @throws MloException API 異常例外
+     * Executes.
+     * @param method the method instance.
+     * @param reqDto the request DTO.
+     * @param path URL path.
+     * @param paramMap the query parameter map.
+     * @return the response DTO.
+     * @throws IOException IO failure.
+     * @throws MloException API error.
      */
     private RestifResponseDto invokeInternal(MloMethod method,
     		RestifRequestDto reqDto, String path, Map<String, String> paramMap)
@@ -71,7 +71,7 @@ public class MloInvokerImplDummy implements MloInvoker {
         return resDto;
     }
 
-    // 期待レスポンスXML指定
+    // Specifies expected response XML.
     public void setXmlName(String xmlName) {
         this.xmlName = xmlName;
     }

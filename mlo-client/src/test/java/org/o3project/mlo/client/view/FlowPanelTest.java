@@ -39,7 +39,7 @@ public class FlowPanelTest {
     private static final int DELAY = 9999;
 
     /*
-     * セットアップ
+     * Sets up
      */
     @Before
     public void setUp() throws Exception {
@@ -89,7 +89,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * クリーンアップ
+     * Cleans up
      */
     @After
     public void tearDown() throws Exception {
@@ -98,7 +98,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * コンストラクタテスト1
+     * A constructor 1
      */
     @Test
     public void constructorTest1() {
@@ -111,7 +111,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * コンストラクタテスト2
+     * A constructor 2
      */
     @Test
     public void constructorTest2() {
@@ -124,7 +124,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * コンストラクタテスト3
+     * A constructor 3
      */
     @Test
     public void constructorTest3() {
@@ -137,7 +137,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * getCreateFlowDtoテスト(正常)
+     * getCreateFlowDto test (NORMAL)
      */
     @Test
     public void getCreateFlowDtoTest() {
@@ -159,7 +159,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * getCreateFlowDtoテスト(異常:帯域入力エラー)
+     * getCreateFlowDto test (ANOMALY: Invalid band width)
      */
     @Test
     public void getCreateFlowDtoTest2() {
@@ -184,7 +184,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * getCreateFlowDtoテスト(異常:遅延時間入力エラー)
+     * getCreateFlowDto test (ANOMALY: Invalid delay time)
      */
     @Test
     public void getCreateFlowDtoTest3() {
@@ -209,7 +209,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * getUpdateFlowDtoテスト(正常)
+     * getUpdateFlowDto test (NORMAL)
      */
     @Test
     public void getUpdateFlowDtoTest() {
@@ -244,7 +244,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * getUpdateFlowDtoテスト(異常：帯域入力エラー)
+     * getUpdateFlowDto test (ANOMALY: Invalid band width)s
      */
     @Test
     public void getUpdateFlowDtoTest2() {
@@ -270,7 +270,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * getUpdateFlowDtoテスト(異常：遅延時間入力エラー)
+     * getUpdateFlowDto test (ANOMALY: Invalid delay time)
      */
     @Test
     public void getUpdateFlowDtoTest3() {
@@ -296,7 +296,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * getDeleteFlowDtoテスト(正常)
+     * getDeleteFlowDto test (NORMAL)
      */
     @Test
     public void getDeleteFlowDtoTest() {
@@ -317,7 +317,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * getFlowTypeテスト
+     * getFlowType test
      */
     @Test
     public void getFlowTypeTest() {
@@ -326,7 +326,7 @@ public class FlowPanelTest {
     }
 
     /*
-     * disposeTestテスト
+     * disposeTest test
      */
     @Test
     public void disposeTest() {

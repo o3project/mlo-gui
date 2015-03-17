@@ -56,9 +56,9 @@ public class SliceDataManagerImplTest {
     @Test
     public void testGetSliceList() {
         try {
-            dummyInvoker.setXmlName("list.res.xml");// 受信レスポンスファイル指定
-            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// ダミークラス設定
-            List<SliceDto> sliceDto = sliceDataManagerImpl.getSliceList(); // 実行
+            dummyInvoker.setXmlName("list.res.xml");// Specifies response file.
+            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// Sets dummy invoker instance.
+            List<SliceDto> sliceDto = sliceDataManagerImpl.getSliceList(); // Executes
             assertEquals(sliceDto.size(), 3);
             assertEquals(sliceDto.get(0).id, new Integer(1));
             assertEquals(sliceDto.get(0).name, "sliceA");
@@ -77,10 +77,10 @@ public class SliceDataManagerImplTest {
     @Test
     public void testGetSliceInfo() {
         try {
-            dummyInvoker.setXmlName("read.res.xml");// 受信レスポンスファイル指定
-            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// ダミークラス設定
-            RestifRequestDto requestDto = createTempDto("read.req.xml", RestifRequestDto.class);//　リクエストXML DTO変換
-            SliceDto responseDto = sliceDataManagerImpl.getSliceInfo(requestDto.slice);// 実行
+            dummyInvoker.setXmlName("read.res.xml");// Specifies response file.
+            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// Sets dummy invoker instance.
+            RestifRequestDto requestDto = createTempDto("read.req.xml", RestifRequestDto.class);// Converts request DTO
+            SliceDto responseDto = sliceDataManagerImpl.getSliceInfo(requestDto.slice);// Executes
 
             assertEquals(responseDto.name, "sliceA");
             assertEquals(responseDto.id, new Integer(1));
@@ -135,10 +135,10 @@ public class SliceDataManagerImplTest {
     @Test
     public void testCreateSliceInfo() {
         try {
-            dummyInvoker.setXmlName("create.res.xml");// 受信レスポンスファイル指定
-            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// ダミークラス設定
-            RestifRequestDto requestDto = createTempDto("create.req.xml", RestifRequestDto.class);//　リクエストXML DTO変換
-            SliceDto responseDto = sliceDataManagerImpl.createSliceInfo(requestDto.slice);// 実行
+            dummyInvoker.setXmlName("create.res.xml");// Specifies response file.
+            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// Sets dummy invoker instance.
+            RestifRequestDto requestDto = createTempDto("create.req.xml", RestifRequestDto.class);// Converts request DTO
+            SliceDto responseDto = sliceDataManagerImpl.createSliceInfo(requestDto.slice);// Executes
             assertEquals(responseDto.name, "slice1");
             assertEquals(responseDto.id, new Integer(1));
             assertEquals(responseDto.flows.size(), 1);
@@ -154,10 +154,10 @@ public class SliceDataManagerImplTest {
     @Test
     public void testUpdateSliceInfo() {
         try {
-            dummyInvoker.setXmlName("update.res.xml");// 受信レスポンスファイル指定
-            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// ダミークラス設定
-            RestifRequestDto requestDto = createTempDto("update.req.xml", RestifRequestDto.class);//　リクエストXML DTO変換
-            SliceDto responseDto = sliceDataManagerImpl.updateSliceInfo(requestDto.slice);// 実行
+            dummyInvoker.setXmlName("update.res.xml");// Specifies response file.
+            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// Sets dummy invoker instance.
+            RestifRequestDto requestDto = createTempDto("update.req.xml", RestifRequestDto.class);// Converts request DTO
+            SliceDto responseDto = sliceDataManagerImpl.updateSliceInfo(requestDto.slice);// Executes
             assertEquals(responseDto.id, new Integer(1));
             assertEquals(responseDto.flows.size(), 2);
             assertEquals(responseDto.flows.get(0).name, "fa101");
@@ -174,10 +174,10 @@ public class SliceDataManagerImplTest {
     @Test
     public void testDeleteSliceInfo() {
         try {
-            dummyInvoker.setXmlName("delete.res.xml");// 受信レスポンスファイル指定
-            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// ダミークラス設定
-            RestifRequestDto requestDto = createTempDto("delete.req.xml", RestifRequestDto.class);//　リクエストXML DTO変換
-            SliceDto responseDto = sliceDataManagerImpl.deleteSliceInfo(requestDto.slice);// 実行
+            dummyInvoker.setXmlName("delete.res.xml");// Specifies response file.
+            sliceDataManagerImpl.setMloInvoker(dummyInvoker);// Sets dummy invoker instance.
+            RestifRequestDto requestDto = createTempDto("delete.req.xml", RestifRequestDto.class);// Converts request DTO
+            SliceDto responseDto = sliceDataManagerImpl.deleteSliceInfo(requestDto.slice);// Executes
             assertEquals(responseDto.id, new Integer(1));
         } catch (MloClientException e) {
             fail();
@@ -187,9 +187,9 @@ public class SliceDataManagerImplTest {
     }
 
     /**
-	 * テンプレートファイル(xml）を読み込み、リクエストDtoを作成する
+     * Loads template XML file, and creates request DTO.
 	 * @param xmlFile
-	 * @return リクエストDto
+	 * @return the request DTO.
 	 * @throws MloException 
 	 */
 	private static <T> T createTempDto(String xmlFileName, Class<T> type) {
@@ -200,7 +200,7 @@ public class SliceDataManagerImplTest {
 			istream = new FileInputStream(xmlFile);
 			reqDto = JAXB.unmarshal(istream, type);
 		} catch (FileNotFoundException e) {
-			// 基本、このルートには入らない
+			// Never pass here.
 			fail();
 		} finally {
 			if (istream != null) {

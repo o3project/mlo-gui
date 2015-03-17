@@ -95,7 +95,7 @@ public class MloClient extends Application implements CredentialListener, Change
 		LOG.info("MloClient#start() starts.");
 		instance = this;
 		
-		//　Launches Seasar2 
+		// Launches Seasar2 
 		try {
 			SingletonS2ContainerFactory.setConfigPath("app.dicon");
 			SingletonS2ContainerFactory.init();

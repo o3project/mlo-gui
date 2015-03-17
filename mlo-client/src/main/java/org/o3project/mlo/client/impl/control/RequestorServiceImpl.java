@@ -464,7 +464,7 @@ public class RequestorServiceImpl implements RequestorService {
 	public static void main(String[] args) {
 		SliceDataManager sliceDataManager = null;
 		ClientConfig clientConfig = null;
-		//　launches Seasar2
+		// Launches Seasar2
 		try {
 			SingletonS2ContainerFactory.setConfigPath("app.dicon");
 			SingletonS2ContainerFactory.init();

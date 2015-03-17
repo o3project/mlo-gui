@@ -112,7 +112,7 @@ public class SliceDataManagerImpl implements SliceDataManager {
         srcComponentName = clientConfig.getSrcComponentName();
     }
 
-	/* (非 Javadoc)
+	/* (non Javadoc)
 	 * @see org.o3project.mlo.client.control.SliceDataManager#getSliceList()
 	 */
 	@Override
@@ -129,7 +129,7 @@ public class SliceDataManagerImpl implements SliceDataManager {
 		return resDto.slices;
 	}
 
-	/* (非 Javadoc)
+	/* (non Javadoc)
 	 * @see org.o3project.mlo.client.control.SliceDataManager#getSliceInfo(org.o3project.mlo.server.dto.SliceDto)
 	 */
 	@Override
@@ -144,7 +144,7 @@ public class SliceDataManagerImpl implements SliceDataManager {
 		return resDto.slices.get(0);
 	}
 
-	/* (非 Javadoc)
+	/* (non Javadoc)
 	 * @see org.o3project.mlo.client.control.SliceDataManager#createSliceInfo(org.o3project.mlo.server.dto.SliceDto)
 	 */
 	@Override
@@ -160,7 +160,7 @@ public class SliceDataManagerImpl implements SliceDataManager {
 		return resDto.slices.get(0);
 	}
 
-	/* (非 Javadoc)
+	/* (non Javadoc)
 	 * @see org.o3project.mlo.client.control.SliceDataManager#updateSliceInfo(org.o3project.mlo.server.dto.SliceDto)
 	 */
 	@Override
@@ -175,7 +175,7 @@ public class SliceDataManagerImpl implements SliceDataManager {
 		return resDto.slices.get(0);
 	}
 
-	/* (非 Javadoc)
+	/* (non Javadoc)
 	 * @see org.o3project.mlo.client.control.SliceDataManager#deleteSliceInfo(org.o3project.mlo.server.dto.SliceDto)
 	 */
 	@Override

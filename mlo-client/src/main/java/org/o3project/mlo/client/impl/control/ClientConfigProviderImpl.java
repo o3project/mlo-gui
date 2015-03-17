@@ -162,7 +162,7 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 	/**
 	 * Loads properties from specified file path.
 	 * @param configMap the properties loaded.
-	 * @param filePath　the property file path.
+	 * @param filePath the property file path.
 	 * @throws IOException Failed to read.
 	 */
 	private static void loadConfigMapFrom(Map<String, String> configMap, String filePath) 
@@ -187,7 +187,7 @@ public class ClientConfigProviderImpl implements ConfigProvider, ClientConfigCon
 	/**
 	 * Loads properties from specified URL.
 	 * @param configMap the properties loaded.
-	 * @param url　the URL of the property file.
+	 * @param url the URL of the property file.
 	 * @throws IOException Failed to read.
 	 */
 	private static void loadConfigMapFrom(Map<String, String> configMap, URL url) throws IOException {

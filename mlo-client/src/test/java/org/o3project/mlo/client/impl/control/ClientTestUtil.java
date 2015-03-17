@@ -27,13 +27,13 @@ import org.w3c.dom.Document;
 public class ClientTestUtil {
 
     /**
-    * XML ファイルからリクエスト DTO を読み込む。
-    * @param serdes {@link MloSerdes} インスタンス
-    * @param dirName xml ファイルのディレクトリ
-    * @param xmlFileName xml ファイルのファイル名
-    * @return リクエスト DTO
-    * @throws Throwable 読み込み中の異常例外
-    */
+     * Loads request DTO from XML file.
+     * @param serdes {@link MloSerdes} instance. 
+     * @param dirName xml file directory.
+     * @param xmlFileName xml file name.
+     * @return the request DTO
+     * @throws Throwable Failure in loading.
+     */
     public static RestifResponseDto readResFromXml(MloSerdes serdes, String dirName, String xmlFileName) throws Throwable {
         File xmlfile = new File(dirName, xmlFileName);
         InputStream istream = null;
@@ -50,12 +50,12 @@ public class ClientTestUtil {
     }
 
     /**
-     * XML ファイルからリクエスト DTO を読み込む。
-     * @param serdes {@link MloSerdes} インスタンス
-     * @param dirName xml ファイルのディレクトリ
-     * @param xmlFileName xml ファイルのファイル名
-     * @return リクエスト DTO
-     * @throws Throwable 読み込み中の異常例外
+     * Loads request DTO from XML file.
+     * @param serdes {@link MloSerdes} instance.
+     * @param dirName xml file directory.
+     * @param xmlFileName xml file name.
+     * @return request DTO.
+     * @throws Throwable Failure in loading.
      */
     public static RestifRequestDto readReqFromXml(MloSerdes serdes, String dirName, String xmlFileName) throws Throwable {
         File xmlfile = new File(dirName, xmlFileName);
@@ -73,13 +73,13 @@ public class ClientTestUtil {
     }
 
     /**
-     * リクエスト DTO の内容が XML ファイルと同じかどうか。
-     * @param serdes {@link MloSerdes} インスタンス
-     * @param reqDto {@link RestifRequestDto} インスタンス
-     * @param dirName xml ファイルのディレクトリ
-     * @param xmlFileName xml ファイルのファイル名
-     * @return 同じか否か。同じならば true を返す。
-     * @throws Throwable 処理中の異常例外
+     * Checks whether contents of request DTO is same as contents in XML file.
+     * @param serdes {@link MloSerdes} instance.
+     * @param reqDto {@link RestifRequestDto} instance.
+     * @param dirName xml file directory.
+     * @param xmlFileName xml file name.
+     * @return true if those are same.
+     * @throws Throwable Failure in processing.
      */
     public static boolean isSameXmlAs(MloSerdes serdes, RestifRequestDto reqDto, String dirName, String xmlFileName) throws Throwable {
         String resXml = null;
@@ -126,14 +126,13 @@ public class ClientTestUtil {
         return doc1.isEqualNode(doc2);
     }
     
-
     /**
-     * リクエスト DTO の内容が XML ファイルと同じかどうか。
-     * @param reqDto {@link RestifResponseDto} インスタンス
-     * @param dirName xml ファイルのディレクトリ
-     * @param xmlFileName xml ファイルのファイル名
-     * @return 同じか否か。同じならば true を返す。
-     * @throws Throwable 処理中の異常例外
+     * Check whether contents of request DTO is same as contents in XML file.
+     * @param reqDto {@link RestifResponseDto} instance.
+     * @param dirName xml file directory.
+     * @param xmlFileName xml file name.
+     * @return true if those are same.
+     * @throws Throwable Failure in processing.
      */
     public static boolean isSameXmlAs(RestifResponseDto resDto, String dirName, String xmlFileName) throws Throwable {
         String resXml = null;

@@ -89,7 +89,7 @@ public class MloCreateViewControllerTest {
 		try {
 			SliceDto sliceDto = obj.getData();
 			
-			// 初期値の値が取れることを確認
+			// Checks whether default values can be retrieved or not.
 			assertEquals(sliceDto.name, "");
 			assertEquals(sliceDto.flows.get(0).name, "");
 			assertEquals(sliceDto.flows.get(0).srcCENodeName, "tokyo");
