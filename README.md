@@ -15,13 +15,13 @@ Preparing runtime environment
 The following software is required, so must have been installed 
 beforehand.
 
-- jdk-7
+- jdk7
 - mlo-net environment
 
 In this document, it is assumed that mlo-net environment has been 
 constructed as guest OS on Oracle VM VirtualBox, and then 
 port-forwarding setting for 8080 port has been set to Oracle VM 
-VirtualBox.
+VirtualBox (see also [port-forwarding setting page](doc/virtualbox-portforwarding-setting.md)).
 
 
 Getting started
